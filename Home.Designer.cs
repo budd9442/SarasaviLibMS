@@ -28,104 +28,178 @@
         /// </summary>
         private void InitializeComponent()
         {
-            inquiryBtn = new Button();
-            borrowalsBtn = new Button();
-            returnsBtn = new Button();
-            userManagerBtn = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
+            tabPage1 = new TabPage();
+            dashboard1 = new User_controls.Dashboard();
+            tabPage2 = new TabPage();
+            inquiries1 = new User_controls.Inquiries();
+            tabPage3 = new TabPage();
+            userManager1 = new User_controls.UserManager();
+            tabPage4 = new TabPage();
+            tabPage5 = new TabPage();
+            tabPage6 = new TabPage();
+            tabPage7 = new TabPage();
+            materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            materialTabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
             SuspendLayout();
             // 
-            // inquiryBtn
+            // materialTabControl1
             // 
-            inquiryBtn.Location = new Point(12, 80);
-            inquiryBtn.Name = "inquiryBtn";
-            inquiryBtn.Size = new Size(172, 62);
-            inquiryBtn.TabIndex = 0;
-            inquiryBtn.Text = "Inquaries ";
-            inquiryBtn.UseVisualStyleBackColor = true;
+            materialTabControl1.Controls.Add(tabPage1);
+            materialTabControl1.Controls.Add(tabPage2);
+            materialTabControl1.Controls.Add(tabPage3);
+            materialTabControl1.Controls.Add(tabPage4);
+            materialTabControl1.Controls.Add(tabPage5);
+            materialTabControl1.Controls.Add(tabPage6);
+            materialTabControl1.Controls.Add(tabPage7);
+            materialTabControl1.Depth = 0;
+            materialTabControl1.Dock = DockStyle.Top;
+            materialTabControl1.Location = new Point(0, 60);
+            materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialTabControl1.Multiline = true;
+            materialTabControl1.Name = "materialTabControl1";
+            materialTabControl1.SelectedIndex = 0;
+            materialTabControl1.Size = new Size(1288, 600);
+            materialTabControl1.TabIndex = 2;
             // 
-            // borrowalsBtn
+            // tabPage1
             // 
-            borrowalsBtn.Location = new Point(12, 148);
-            borrowalsBtn.Name = "borrowalsBtn";
-            borrowalsBtn.Size = new Size(172, 62);
-            borrowalsBtn.TabIndex = 0;
-            borrowalsBtn.Text = "Borrowals";
-            borrowalsBtn.UseVisualStyleBackColor = true;
+            tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(dashboard1);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1280, 567);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Dashboard";
             // 
-            // returnsBtn
+            // dashboard1
             // 
-            returnsBtn.Location = new Point(12, 216);
-            returnsBtn.Name = "returnsBtn";
-            returnsBtn.Size = new Size(172, 62);
-            returnsBtn.TabIndex = 0;
-            returnsBtn.Text = "Returns";
-            returnsBtn.UseVisualStyleBackColor = true;
+            dashboard1.Location = new Point(3, 3);
+            dashboard1.Name = "dashboard1";
+            dashboard1.Size = new Size(1076, 621);
+            dashboard1.TabIndex = 0;
             // 
-            // userManagerBtn
+            // tabPage2
             // 
-            userManagerBtn.Location = new Point(12, 406);
-            userManagerBtn.Name = "userManagerBtn";
-            userManagerBtn.Size = new Size(172, 62);
-            userManagerBtn.TabIndex = 0;
-            userManagerBtn.Text = "User Management";
-            userManagerBtn.UseVisualStyleBackColor = true;
+            tabPage2.BackColor = Color.White;
+            tabPage2.Controls.Add(inquiries1);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1280, 567);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Inquiries";
             // 
-            // button1
+            // inquiries1
             // 
-            button1.Location = new Point(12, 474);
-            button1.Name = "button1";
-            button1.Size = new Size(172, 62);
-            button1.TabIndex = 0;
-            button1.Text = "Book Management";
-            button1.UseVisualStyleBackColor = true;
+            inquiries1.Dock = DockStyle.Fill;
+            inquiries1.Location = new Point(3, 3);
+            inquiries1.Name = "inquiries1";
+            inquiries1.Size = new Size(1274, 561);
+            inquiries1.TabIndex = 0;
             // 
-            // button2
+            // tabPage3
             // 
-            button2.Location = new Point(12, 284);
-            button2.Name = "button2";
-            button2.Size = new Size(172, 62);
-            button2.TabIndex = 0;
-            button2.Text = "Reservations";
-            button2.UseVisualStyleBackColor = true;
+            tabPage3.BackColor = Color.White;
+            tabPage3.Controls.Add(userManager1);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(1280, 567);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Borrowals";
             // 
-            // button3
+            // userManager1
             // 
-            button3.Location = new Point(12, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(172, 62);
-            button3.TabIndex = 0;
-            button3.Text = "Dashboard";
-            button3.UseVisualStyleBackColor = true;
+            userManager1.Dock = DockStyle.Fill;
+            userManager1.Location = new Point(0, 0);
+            userManager1.Name = "userManager1";
+            userManager1.Size = new Size(1280, 567);
+            userManager1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            tabPage4.BackColor = Color.White;
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(1280, 567);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Returns";
+            // 
+            // tabPage5
+            // 
+            tabPage5.BackColor = Color.White;
+            tabPage5.Location = new Point(4, 29);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(1280, 567);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "Reservations";
+            // 
+            // tabPage6
+            // 
+            tabPage6.BackColor = Color.White;
+            tabPage6.Location = new Point(4, 29);
+            tabPage6.Name = "tabPage6";
+            tabPage6.Size = new Size(1280, 567);
+            tabPage6.TabIndex = 5;
+            tabPage6.Text = "User Management";
+            // 
+            // tabPage7
+            // 
+            tabPage7.BackColor = Color.White;
+            tabPage7.Location = new Point(4, 29);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Size = new Size(1280, 567);
+            tabPage7.TabIndex = 6;
+            tabPage7.Text = "Book Management";
+            // 
+            // materialTabSelector1
+            // 
+            materialTabSelector1.BaseTabControl = materialTabControl1;
+            materialTabSelector1.CharacterCasing = MaterialSkin.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            materialTabSelector1.Depth = 0;
+            materialTabSelector1.Dock = DockStyle.Top;
+            materialTabSelector1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTabSelector1.Location = new Point(0, 0);
+            materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialTabSelector1.Name = "materialTabSelector1";
+            materialTabSelector1.Size = new Size(1288, 60);
+            materialTabSelector1.TabIndex = 3;
+            materialTabSelector1.Text = "materialTabSelector1";
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(947, 556);
-            Controls.Add(button1);
-            Controls.Add(userManagerBtn);
-            Controls.Add(button2);
-            Controls.Add(returnsBtn);
-            Controls.Add(borrowalsBtn);
-            Controls.Add(button3);
-            Controls.Add(inquiryBtn);
+            ClientSize = new Size(1288, 660);
+            Controls.Add(materialTabControl1);
+            Controls.Add(materialTabSelector1);
             Name = "Home";
             Text = "SarasaviLibMS";
+            FormClosed += Home_FormClosed;
             Load += Form1_Load;
+            materialTabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button inquiryBtn;
-        private Button borrowalsBtn;
-        private Button returnsBtn;
-        private Button userManagerBtn;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private User_controls.Dashboard dashboard1;
+        private User_controls.Inquiries inquiries1;
+        private TabPage tabPage3;
+        private User_controls.UserManager userManager1;
+        private TabPage tabPage4;
+        private TabPage tabPage5;
+        private TabPage tabPage6;
+        private TabPage tabPage7;
+        private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
     }
 }

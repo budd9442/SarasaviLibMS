@@ -80,6 +80,8 @@
             loginPasswd.Name = "loginPasswd";
             loginPasswd.Size = new Size(388, 32);
             loginPasswd.TabIndex = 2;
+            loginPasswd.Text = "1212";
+            loginPasswd.UseSystemPasswordChar = true;
             // 
             // loginUsername
             // 
@@ -88,6 +90,7 @@
             loginUsername.Name = "loginUsername";
             loginUsername.Size = new Size(388, 32);
             loginUsername.TabIndex = 2;
+            loginUsername.Text = "buddhika";
             // 
             // loginButton
             // 

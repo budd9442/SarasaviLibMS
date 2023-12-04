@@ -57,7 +57,9 @@ namespace SarasaviLibMS.Forms
                             adapter.Fill(table);
                             if (table.Rows.Count > 0)
                             {
-                                MessageBox.Show("Logged in!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Hide();
+                                Home home = new Home(table.Rows[0]["userName"].ToString());
+                                home.Show();
 
                             }
                             else
