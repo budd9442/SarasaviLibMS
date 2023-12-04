@@ -33,10 +33,6 @@ namespace SarasaviLibMS.Forms
 
         private void regButton_Click(object sender, EventArgs e)
         {
-            Register regform = new Register();
-            this.Hide();
-            regform.Show();
-
         }
 
         private void loginButton_Click(object sender, EventArgs e)

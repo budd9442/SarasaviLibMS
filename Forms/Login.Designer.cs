@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            panel1 = new Panel();
             label2 = new Label();
             label3 = new Label();
+            panel1 = new Panel();
             loginPasswd = new TextBox();
+            loginUsername = new TextBox();
             loginButton = new Button();
             checkBox1 = new CheckBox();
-            loginUsername = new TextBox();
-            regButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -47,14 +46,6 @@
             label1.Size = new Size(255, 20);
             label1.TabIndex = 0;
             label1.Text = "Sarasavi Library Management System";
-            // 
-            // panel1
-            // 
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(444, 49);
-            panel1.TabIndex = 1;
             // 
             // label2
             // 
@@ -74,6 +65,14 @@
             label3.TabIndex = 0;
             label3.Text = "Password";
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(444, 49);
+            panel1.TabIndex = 1;
+            // 
             // loginPasswd
             // 
             loginPasswd.Font = new Font("Segoe UI", 11F);
@@ -82,9 +81,17 @@
             loginPasswd.Size = new Size(388, 32);
             loginPasswd.TabIndex = 2;
             // 
+            // loginUsername
+            // 
+            loginUsername.Font = new Font("Segoe UI", 11F);
+            loginUsername.Location = new Point(21, 195);
+            loginUsername.Name = "loginUsername";
+            loginUsername.Size = new Size(388, 32);
+            loginUsername.TabIndex = 2;
+            // 
             // loginButton
             // 
-            loginButton.Location = new Point(21, 350);
+            loginButton.Location = new Point(121, 338);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(188, 73);
             loginButton.TabIndex = 4;
@@ -95,7 +102,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(298, 320);
+            checkBox1.Location = new Point(275, 240);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(134, 24);
             checkBox1.TabIndex = 5;
@@ -103,31 +110,12 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
-            // loginUsername
-            // 
-            loginUsername.Font = new Font("Segoe UI", 11F);
-            loginUsername.Location = new Point(21, 195);
-            loginUsername.Name = "loginUsername";
-            loginUsername.Size = new Size(388, 32);
-            loginUsername.TabIndex = 2;
-            // 
-            // regButton
-            // 
-            regButton.Location = new Point(221, 350);
-            regButton.Name = "regButton";
-            regButton.Size = new Size(188, 73);
-            regButton.TabIndex = 4;
-            regButton.Text = "Register";
-            regButton.UseVisualStyleBackColor = true;
-            regButton.Click += regButton_Click;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(444, 450);
             Controls.Add(checkBox1);
-            Controls.Add(regButton);
             Controls.Add(loginButton);
             Controls.Add(loginUsername);
             Controls.Add(loginPasswd);
@@ -144,16 +132,14 @@
         }
 
         #endregion
-
+        private Button registerButton;
         private Label label1;
-        private Panel panel1;
         private Label label2;
         private Label label3;
+        private Panel panel1;
         private TextBox loginPasswd;
-        private Button loginButton;
-        private Button registerButton;
-        private CheckBox checkBox1;
         private TextBox loginUsername;
-        private Button regButton;
+        private Button loginButton;
+        private CheckBox checkBox1;
     }
 }

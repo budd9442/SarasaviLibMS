@@ -21,8 +21,7 @@ namespace SarasaviLibMS
             this.Hide();
             //Login login = new Login();
             //login.ShowDialog();
-            Register register = new Register();
-            register.ShowDialog();
+
             
         }
     }
