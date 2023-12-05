@@ -325,6 +325,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.FromArgb(22, 25, 33);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -337,7 +338,7 @@
             // button1
             // 
             button1.AutoEllipsis = true;
-            button1.BackColor = Color.FromArgb(41, 41, 41);
+            button1.BackColor = Color.FromArgb(22, 25, 33);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.Close;
@@ -351,7 +352,7 @@
             // button2
             // 
             button2.AutoEllipsis = true;
-            button2.BackColor = Color.FromArgb(41, 41, 41);
+            button2.BackColor = Color.FromArgb(22, 25, 33);
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Image = Properties.Resources.Minus;
