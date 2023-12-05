@@ -1,5 +1,10 @@
+using Microsoft.Data.SqlClient;
+using SarasaviLibMS.Classes;
 using SarasaviLibMS.Forms;
+using SarasaviLibMS.User_controls;
+using System.Data;
 using System.Net.Http.Headers;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SarasaviLibMS
 {
@@ -8,6 +13,7 @@ namespace SarasaviLibMS
         string user = "";
         private bool mouseDown;
         private Point lastLocation;
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
 
         public Home(string username)
         {
@@ -17,7 +23,6 @@ namespace SarasaviLibMS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
 
         }
 
@@ -74,7 +79,7 @@ namespace SarasaviLibMS
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(false, true, true, true, true, true,true);
+            setButtonColors(false, true, true, true, true, true, true);
             materialTabControl1.SelectTab(0);
         }
 
@@ -93,32 +98,32 @@ namespace SarasaviLibMS
 
         private void burrowalsBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(true, false, true, true, true, true,true);
+            setButtonColors(true, false, true, true, true, true, true);
             materialTabControl1.SelectTab(1);
         }
 
         private void returnsBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(true, true, false, true, true, true,true);
+            setButtonColors(true, true, false, true, true, true, true);
             materialTabControl1.SelectTab(2);
         }
 
         private void inquiriesBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(true, true, true, false, true, true,true);
+            setButtonColors(true, true, true, false, true, true, true);
             materialTabControl1.SelectTab(3);
         }
 
         private void usersBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(true, true, true, true, true, false,true);
-            materialTabControl1.SelectTab(4);
+            setButtonColors(true, true, true, true, true, false, true);
+            materialTabControl1.SelectTab(5);
         }
 
         private void booksBtn_Click(object sender, EventArgs e)
         {
-            setButtonColors(true, true, true, true, true, true,false);
-            materialTabControl1.SelectTab(5);
+            setButtonColors(true, true, true, true, true, true, false);
+            materialTabControl1.SelectTab(6);
 
 
         }
@@ -131,8 +136,15 @@ namespace SarasaviLibMS
         private void reservationsBtn_Click(object sender, EventArgs e)
         {
             setButtonColors(true, true, true, true, false, true, true);
-            materialTabControl1.SelectTab(6);
+            materialTabControl1.SelectTab(4);
 
         }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

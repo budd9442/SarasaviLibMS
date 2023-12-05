@@ -44,10 +44,13 @@
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
+            bookManager1 = new User_controls.BookManager();
+            panel2 = new Panel();
             button1 = new Button();
             button2 = new Button();
             panel1.SuspendLayout();
             materialTabControl1.SuspendLayout();
+            tabPage7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -225,7 +228,7 @@
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = Color.FromArgb(61, 61, 61);
+            tabPage1.BackColor = Color.FromArgb(25, 25, 33);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -299,20 +302,42 @@
             // 
             // tabPage7
             // 
-            tabPage7.BackColor = Color.FromArgb(61, 61, 61);
+            tabPage7.BackColor = Color.FromArgb(41, 41, 41);
+            tabPage7.Controls.Add(bookManager1);
+            tabPage7.Controls.Add(panel2);
             tabPage7.Location = new Point(4, 29);
             tabPage7.Name = "tabPage7";
             tabPage7.Size = new Size(1032, 685);
             tabPage7.TabIndex = 6;
             tabPage7.Text = "tabPage7";
+            tabPage7.Click += tabPage7_Click;
             tabPage7.MouseDown += panelMouseDown;
             tabPage7.MouseMove += panelMouseMove;
             tabPage7.MouseUp += panelMouseUp;
             // 
+            // bookManager1
+            // 
+            bookManager1.Dock = DockStyle.Fill;
+            bookManager1.Location = new Point(0, 36);
+            bookManager1.Name = "bookManager1";
+            bookManager1.Size = new Size(1032, 649);
+            bookManager1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1032, 36);
+            panel2.TabIndex = 1;
+            panel2.MouseDown += panelMouseDown;
+            panel2.MouseMove += panelMouseMove;
+            panel2.MouseUp += panelMouseUp;
+            // 
             // button1
             // 
             button1.AutoEllipsis = true;
-            button1.BackColor = Color.FromArgb(61, 61, 61);
+            button1.BackColor = Color.FromArgb(41, 41, 41);
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.Close;
@@ -326,11 +351,11 @@
             // button2
             // 
             button2.AutoEllipsis = true;
-            button2.BackColor = Color.FromArgb(61, 61, 61);
+            button2.BackColor = Color.FromArgb(41, 41, 41);
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Image = Properties.Resources.Minus;
-            button2.Location = new Point(1211, 0);
+            button2.Location = new Point(1211, -1);
             button2.Name = "button2";
             button2.Size = new Size(39, 36);
             button2.TabIndex = 0;
@@ -354,6 +379,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             materialTabControl1.ResumeLayout(false);
+            tabPage7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -376,5 +402,7 @@
         private Button button2;
         private Button reservationsBtn;
         private TabPage tabPage7;
+        private User_controls.BookManager bookManager1;
+        private Panel panel2;
     }
 }
