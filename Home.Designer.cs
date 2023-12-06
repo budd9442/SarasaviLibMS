@@ -38,19 +38,51 @@
             dashboardBtn = new Button();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
+            minimize = new PictureBox();
+            exit = new PictureBox();
             tabPage2 = new TabPage();
+            pictureBox13 = new PictureBox();
+            pictureBox14 = new PictureBox();
             tabPage3 = new TabPage();
+            pictureBox11 = new PictureBox();
+            pictureBox12 = new PictureBox();
             tabPage4 = new TabPage();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
             tabPage5 = new TabPage();
+            pictureBox7 = new PictureBox();
+            pictureBox8 = new PictureBox();
             tabPage6 = new TabPage();
+            pictureBox3 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            userManager1 = new User_controls.UserManager();
             tabPage7 = new TabPage();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             bookManager1 = new User_controls.BookManager();
-            panel2 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
             panel1.SuspendLayout();
             materialTabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)minimize).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)exit).BeginInit();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -222,154 +254,288 @@
             materialTabControl1.SelectedIndex = 0;
             materialTabControl1.Size = new Size(1040, 718);
             materialTabControl1.TabIndex = 2;
-            materialTabControl1.MouseDown += panelMouseDown;
-            materialTabControl1.MouseMove += panelMouseMove;
-            materialTabControl1.MouseUp += panelMouseUp;
             // 
             // tabPage1
             // 
             tabPage1.BackColor = Color.FromArgb(25, 25, 33);
+            tabPage1.Controls.Add(minimize);
+            tabPage1.Controls.Add(exit);
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
             tabPage1.Size = new Size(1032, 685);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
-            tabPage1.MouseDown += panelMouseDown;
-            tabPage1.MouseMove += panelMouseMove;
-            tabPage1.MouseUp += panelMouseUp;
+            // 
+            // minimize
+            // 
+            minimize.BackColor = Color.FromArgb(22, 25, 33);
+            minimize.Image = Properties.Resources.Minus;
+            minimize.Location = new Point(960, 0);
+            minimize.Name = "minimize";
+            minimize.Size = new Size(40, 33);
+            minimize.SizeMode = PictureBoxSizeMode.CenterImage;
+            minimize.TabIndex = 3;
+            minimize.TabStop = false;
+            minimize.Click += minimize_Click;
+            // 
+            // exit
+            // 
+            exit.BackColor = Color.FromArgb(22, 25, 33);
+            exit.Image = Properties.Resources.Close;
+            exit.Location = new Point(996, 0);
+            exit.Name = "exit";
+            exit.Size = new Size(40, 33);
+            exit.SizeMode = PictureBoxSizeMode.CenterImage;
+            exit.TabIndex = 4;
+            exit.TabStop = false;
+            exit.Click += exit_Click;
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.FromArgb(61, 61, 61);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Controls.Add(pictureBox13);
+            tabPage2.Controls.Add(pictureBox14);
+            tabPage2.Location = new Point(4, 104);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1032, 685);
+            tabPage2.Size = new Size(192, 0);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
-            tabPage2.MouseDown += panelMouseDown;
-            tabPage2.MouseMove += panelMouseMove;
-            tabPage2.MouseUp += panelMouseUp;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox13.Image = Properties.Resources.Minus;
+            pictureBox13.Location = new Point(960, 0);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(40, 33);
+            pictureBox13.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox13.TabIndex = 3;
+            pictureBox13.TabStop = false;
+            pictureBox13.Click += minimize_Click;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox14.Image = Properties.Resources.Close;
+            pictureBox14.Location = new Point(996, 0);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(40, 33);
+            pictureBox14.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox14.TabIndex = 4;
+            pictureBox14.TabStop = false;
+            pictureBox14.Click += exit_Click;
             // 
             // tabPage3
             // 
             tabPage3.BackColor = Color.FromArgb(61, 61, 61);
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Controls.Add(pictureBox11);
+            tabPage3.Controls.Add(pictureBox12);
+            tabPage3.Location = new Point(4, 104);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1032, 685);
+            tabPage3.Size = new Size(192, 0);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "tabPage3";
-            tabPage3.MouseDown += panelMouseDown;
-            tabPage3.MouseMove += panelMouseMove;
-            tabPage3.MouseUp += panelMouseUp;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox11.Image = Properties.Resources.Minus;
+            pictureBox11.Location = new Point(960, 0);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(40, 33);
+            pictureBox11.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox11.TabIndex = 3;
+            pictureBox11.TabStop = false;
+            pictureBox11.Click += minimize_Click;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox12.Image = Properties.Resources.Close;
+            pictureBox12.Location = new Point(996, 0);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(40, 33);
+            pictureBox12.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox12.TabIndex = 4;
+            pictureBox12.TabStop = false;
+            pictureBox12.Click += exit_Click;
             // 
             // tabPage4
             // 
             tabPage4.BackColor = Color.FromArgb(61, 61, 61);
-            tabPage4.Location = new Point(4, 29);
+            tabPage4.Controls.Add(pictureBox9);
+            tabPage4.Controls.Add(pictureBox10);
+            tabPage4.Location = new Point(4, 104);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1032, 685);
+            tabPage4.Size = new Size(192, 0);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "tabPage4";
-            tabPage4.MouseDown += panelMouseDown;
-            tabPage4.MouseMove += panelMouseMove;
-            tabPage4.MouseUp += panelMouseUp;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox9.Image = Properties.Resources.Minus;
+            pictureBox9.Location = new Point(960, 0);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(40, 33);
+            pictureBox9.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox9.TabIndex = 3;
+            pictureBox9.TabStop = false;
+            pictureBox9.Click += minimize_Click;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox10.Image = Properties.Resources.Close;
+            pictureBox10.Location = new Point(996, 0);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(40, 33);
+            pictureBox10.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox10.TabIndex = 4;
+            pictureBox10.TabStop = false;
+            pictureBox10.Click += exit_Click;
             // 
             // tabPage5
             // 
             tabPage5.BackColor = Color.FromArgb(61, 61, 61);
-            tabPage5.Location = new Point(4, 29);
+            tabPage5.Controls.Add(pictureBox7);
+            tabPage5.Controls.Add(pictureBox8);
+            tabPage5.Location = new Point(4, 104);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1032, 685);
+            tabPage5.Size = new Size(192, 0);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "tabPage5";
-            tabPage5.MouseDown += panelMouseDown;
-            tabPage5.MouseMove += panelMouseMove;
-            tabPage5.MouseUp += panelMouseUp;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox7.Image = Properties.Resources.Minus;
+            pictureBox7.Location = new Point(960, 0);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(40, 33);
+            pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox7.TabIndex = 1;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += minimize_Click;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox8.Image = Properties.Resources.Close;
+            pictureBox8.Location = new Point(996, 0);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(40, 33);
+            pictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox8.TabIndex = 2;
+            pictureBox8.TabStop = false;
+            pictureBox8.Click += exit_Click;
             // 
             // tabPage6
             // 
             tabPage6.BackColor = Color.FromArgb(61, 61, 61);
+            tabPage6.Controls.Add(pictureBox3);
+            tabPage6.Controls.Add(pictureBox6);
+            tabPage6.Controls.Add(userManager1);
             tabPage6.Location = new Point(4, 29);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(1032, 685);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "tabPage6";
-            tabPage6.MouseDown += panelMouseDown;
-            tabPage6.MouseMove += panelMouseMove;
-            tabPage6.MouseUp += panelMouseUp;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox3.Image = Properties.Resources.Minus;
+            pictureBox3.Location = new Point(960, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 33);
+            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox3.TabIndex = 1;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += minimize_Click;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox6.Image = Properties.Resources.Close;
+            pictureBox6.Location = new Point(996, 0);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(40, 33);
+            pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox6.TabIndex = 2;
+            pictureBox6.TabStop = false;
+            pictureBox6.Click += exit_Click;
+            // 
+            // userManager1
+            // 
+            userManager1.BackColor = Color.FromArgb(32, 35, 43);
+            userManager1.Dock = DockStyle.Fill;
+            userManager1.Location = new Point(0, 0);
+            userManager1.Margin = new Padding(3, 40, 3, 3);
+            userManager1.Name = "userManager1";
+            userManager1.Size = new Size(1032, 685);
+            userManager1.TabIndex = 0;
+            userManager1.MouseDown += panelMouseDown;
+            userManager1.MouseMove += panelMouseMove;
+            userManager1.MouseUp += panelMouseUp;
             // 
             // tabPage7
             // 
-            tabPage7.BackColor = Color.FromArgb(41, 41, 41);
+            tabPage7.BackColor = Color.FromArgb(42, 45, 53);
+            tabPage7.Controls.Add(pictureBox4);
+            tabPage7.Controls.Add(pictureBox5);
             tabPage7.Controls.Add(bookManager1);
-            tabPage7.Controls.Add(panel2);
             tabPage7.Location = new Point(4, 29);
             tabPage7.Name = "tabPage7";
             tabPage7.Size = new Size(1032, 685);
             tabPage7.TabIndex = 6;
             tabPage7.Text = "tabPage7";
-            tabPage7.Click += tabPage7_Click;
-            tabPage7.MouseDown += panelMouseDown;
-            tabPage7.MouseMove += panelMouseMove;
-            tabPage7.MouseUp += panelMouseUp;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox4.Image = Properties.Resources.Minus;
+            pictureBox4.Location = new Point(960, 0);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(40, 33);
+            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox4.TabIndex = 1;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += minimize_Click;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox5.Image = Properties.Resources.Close;
+            pictureBox5.Location = new Point(996, 0);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(40, 33);
+            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox5.TabIndex = 2;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += exit_Click;
             // 
             // bookManager1
             // 
+            bookManager1.AutoValidate = AutoValidate.EnableAllowFocusChange;
+            bookManager1.BackColor = Color.FromArgb(32, 35, 43);
             bookManager1.Dock = DockStyle.Fill;
-            bookManager1.Location = new Point(0, 36);
+            bookManager1.Location = new Point(0, 0);
             bookManager1.Name = "bookManager1";
-            bookManager1.Size = new Size(1032, 649);
+            bookManager1.Size = new Size(1032, 685);
             bookManager1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(22, 25, 33);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1032, 36);
-            panel2.TabIndex = 1;
-            panel2.MouseDown += panelMouseDown;
-            panel2.MouseMove += panelMouseMove;
-            panel2.MouseUp += panelMouseUp;
-            // 
-            // button1
-            // 
-            button1.AutoEllipsis = true;
-            button1.BackColor = Color.FromArgb(22, 25, 33);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = Properties.Resources.Close;
-            button1.Location = new Point(1250, -1);
-            button1.Name = "button1";
-            button1.Size = new Size(39, 36);
-            button1.TabIndex = 0;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.AutoEllipsis = true;
-            button2.BackColor = Color.FromArgb(22, 25, 33);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = Properties.Resources.Minus;
-            button2.Location = new Point(1211, -1);
-            button2.Name = "button2";
-            button2.Size = new Size(39, 36);
-            button2.TabIndex = 0;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
+            bookManager1.MouseDown += panelMouseDown;
+            bookManager1.MouseMove += panelMouseMove;
+            bookManager1.MouseUp += panelMouseUp;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(22, 25, 33);
             ClientSize = new Size(1288, 718);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(materialTabControl1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -380,7 +546,27 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             materialTabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)minimize).EndInit();
+            ((System.ComponentModel.ISupportInitialize)exit).EndInit();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
+            tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -399,11 +585,23 @@
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
-        private Button button1;
-        private Button button2;
         private Button reservationsBtn;
         private TabPage tabPage7;
         private User_controls.BookManager bookManager1;
-        private Panel panel2;
+        private User_controls.UserManager userManager1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox14;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
+        private PictureBox minimize;
+        private PictureBox exit;
     }
 }

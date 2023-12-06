@@ -69,13 +69,9 @@ namespace SarasaviLibMS
 
         private void Home_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
@@ -140,11 +136,15 @@ namespace SarasaviLibMS
 
         }
 
-        private void tabPage7_Click(object sender, EventArgs e)
-        {
 
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
-        
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

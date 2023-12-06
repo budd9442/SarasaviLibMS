@@ -27,9 +27,9 @@ namespace SarasaviLibMS.User_controls
 
         private void bookItem_Load(object sender, EventArgs e)
         {
-            bookTitle.Text = title;
+            bookTitle.Text = title + "\nPublished by " + author;
             bookNumber.Text = bookNum;
-            bookAuthor.Text = author;
+           
         }
     }
 }

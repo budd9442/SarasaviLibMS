@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SarasaviLibMS.User_controls
 {
@@ -27,7 +29,7 @@ namespace SarasaviLibMS.User_controls
         {
             if (string.IsNullOrWhiteSpace(addBookTItle.Text) ||
                 string.IsNullOrWhiteSpace(addBookCategory.Text) ||
-                string.IsNullOrWhiteSpace(addBookAuthor.Text))
+                string.IsNullOrWhiteSpace(addBookPublisher.Text))
             {
                 MessageBox.Show("Please fill in all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -41,33 +43,35 @@ namespace SarasaviLibMS.User_controls
                         int nextNumber = 0;
                         int copies = 0;
                         string? mainCopyid = "";
+                        string title =  Regex.Replace(addBookTItle.Text, @"\s+", " ");
                         string getNextNumber = string.Format("SELECT COUNT(*) FROM books WHERE classification='{0}'", addBookCategory.Text);
                         using (SqlCommand cmd = new SqlCommand(getNextNumber, connection))
                         {
                             nextNumber = (int)cmd.ExecuteScalar() + 1;
                         }
-                        string getNextCopy = string.Format("SELECT COUNT(*) FROM books WHERE title='{0}'", addBookTItle.Text);
+                        string getNextCopy = string.Format("SELECT COUNT(*) FROM books WHERE title='{0}'", title);
                         using (SqlCommand cmd = new SqlCommand(getNextCopy, connection))
                         {
                             copies = (int)cmd.ExecuteScalar();
-                            if (copies > 0) {
-                                string getMainCopyId = string.Format("SELECT id FROM books WHERE title='{0}'", addBookTItle.Text);
+                            if (copies > 0)
+                            {
+                                string getMainCopyId = string.Format("SELECT id FROM books WHERE title='{0}'", title);
                                 using (SqlCommand cmd2 = new SqlCommand(getMainCopyId, connection))
                                 {
                                     mainCopyid = cmd2.ExecuteScalar().ToString();
-                                    MessageBox.Show(mainCopyid);
+                                    //MessageBox.Show(mainCopyid);
                                 }
                             }
                         }
-                        
+
 
 
                         string insertData = "INSERT INTO books " +
-                            "(classification,number,title,author,borrowable,id) VALUES" +
+                            "(classification,number,title,publisher,borrowable,id) VALUES" +
                             string.Format("('{0}',{1},'{2}','{3}',{4},'{5}')",
                             addBookCategory.Text, nextNumber,
-                            addBookTItle.Text,
-                            addBookAuthor.Text,
+                            title,
+                            addBookPublisher.Text,
                             addBookBorrow.Checked ? 1 : 0,
                             copies == 0 ? addBookCategory.Text + nextNumber.ToString("D4") : mainCopyid + (copies).ToString() // if nextcopy != 0, maincopyid is never null
                             );
@@ -82,8 +86,9 @@ namespace SarasaviLibMS.User_controls
                         MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
-                    finally { 
-                        connection.Close(); 
+                    finally
+                    {
+                        connection.Close();
                         refreshResults();
                     }
                 }
@@ -93,16 +98,17 @@ namespace SarasaviLibMS.User_controls
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //flowLayoutPanel1.Controls.Add(new bookItem(textBox1.Text, "testicle monster", "A0001"));
-            
-            if(textBox1.Text.Length > 0) {
+
+            if (textBox1.Text.Length > 0)
+            {
                 noResults.Visible = true;
             }
             else
             {
-                noResults.Visible=false;
+                noResults.Visible = false;
             }
             refreshResults();
-            
+
 
 
         }
@@ -127,7 +133,7 @@ namespace SarasaviLibMS.User_controls
                 {
                     connection.Open();
                     string getData = string.Format
-                        ("SELECT * FROM books WHERE id LIKE '%{0}%' OR title LIKE '%{0}%' OR author LIKE '%{0}%'", textBox1.Text);
+                        ("SELECT * FROM books WHERE id LIKE '%{0}%' OR title LIKE '%{0}%' OR publisher LIKE '%{0}%'", textBox1.Text);
                     using (SqlCommand comm = new SqlCommand(getData, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(comm);
@@ -138,9 +144,9 @@ namespace SarasaviLibMS.User_controls
                         {
                             foreach (DataRow row in table.Rows)
                             {
-                                #pragma warning disable CS8604
-                                flowLayoutPanel1.Controls.Add(new bookItem(row["title"].ToString(), row["author"].ToString(), row["id"].ToString()));
-                                #pragma warning restore CS8604 
+#pragma warning disable CS8604
+                                flowLayoutPanel1.Controls.Add(new bookItem(row["title"].ToString(), row["publisher"].ToString(), row["id"].ToString()));
+#pragma warning restore CS8604
                             }
 
                         }
@@ -162,6 +168,16 @@ namespace SarasaviLibMS.User_controls
                 }
                 finally { connection.Close(); }
             }
+        }
+
+        private void noResults_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BookManager_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
