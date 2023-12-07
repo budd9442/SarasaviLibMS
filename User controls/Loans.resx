@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label10.Text" xml:space="preserve">
+    <value>RULES
+
+The Librarian has the authority to accept or cancel the request for a loan.
+
+A borrower can borrow only maximum of 5 books from the library at a time.
+
+A book can be borrowed for a period of two weeks.</value>
+  </data>
 </root>

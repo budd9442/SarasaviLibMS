@@ -16,7 +16,7 @@ namespace SarasaviLibMS.User_controls
         {
             InitializeComponent();
             bookNumber.Text = a;
-            userNumber.Text = b;
+            userNumber.Text = int.Parse(b).ToString("d4");
             date.Text = c;
             returnDate.Text = d;
         }

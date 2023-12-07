@@ -31,6 +31,7 @@ namespace SarasaviLibMS.User_controls
         {
             borrowDate.Text = DateTime.Now.ToShortDateString();
             borrrowReturnDate.Text = DateTime.Now.AddDays(14).ToShortDateString();
+            refreshResults();
         }
 
         private void bookCheckBtn_Click(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace SarasaviLibMS.User_controls
                             userExists = (int)cmd.ExecuteScalar() > 0 ? true : false;
 
                         }
-                        string checkBorrowedBooks = string.Format("SELECT COUNT(*) FROM loans WHERE borrower= {0}",borrowUserNum.Text.Trim());
+                        string checkBorrowedBooks = string.Format("SELECT COUNT(*) FROM loans WHERE borrower= {0}", borrowUserNum.Text.Trim());
                         using (SqlCommand cmd = new SqlCommand(checkBorrowedBooks, connection))
                         {
                             usercanBorrow = (int)cmd.ExecuteScalar() < 5 ? true : false;
@@ -92,7 +93,7 @@ namespace SarasaviLibMS.User_controls
                         if (!usercanBorrow)
                         {
                             MessageBox.Show("User must return borrowed books before borrowing another", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            connection.Close (); 
+                            connection.Close();
                             return;
                         }
 
@@ -123,13 +124,15 @@ namespace SarasaviLibMS.User_controls
                                 string insertData = string.Format("INSERT INTO loans (borrower,book,loanDate,returnDate) VALUES({0},'{1}','{2}','{3}')",
                                     borrowUserNum.Text.Trim(),
                                     borrowBookNum.Text.ToUpper().Trim(),
-                                    DateTime.Now.ToString("yyyy-MM-dd"),
-                                    DateTime.Now.AddDays(14).ToString("yyyy-MM-dd")
+                                    DateTime.Now.ToShortDateString(),
+                                    DateTime.Now.AddDays(14).ToShortDateString()
                                     );
                                 using (SqlCommand command = new SqlCommand(insertData, connection))
                                 {
                                     command.ExecuteNonQuery();
                                     MessageBox.Show("success");
+                                    connection.Close();
+                                    refreshResults();
                                 }
 
                             }
@@ -163,8 +166,34 @@ namespace SarasaviLibMS.User_controls
                 {
                     connection.Open();
                     string getData = string.Format
-                        ("SELECT * FROM members WHERE name LIKE '%{0}%' OR address LIKE '%{0}%' OR nic LIKE '%{0}%'", textBox3.Text);
-                   
+                        ("SELECT * FROM loans WHERE borrower LIKE '%{0}%' AND book LIKE '%{1}%' ", userFilter.Text, bookFilter.Text.ToUpper());
+                    using (SqlCommand comm = new SqlCommand(getData, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        noResults.Text = table.Rows.Count.ToString() + " results";
+                        if (table.Rows.Count > 0)
+                        {
+                            foreach (DataRow row in table.Rows)
+                            {
+
+                                flowLayoutPanel1.Controls.Add(
+                                    new loanItem(
+                                        row["book"].ToString(),
+                                        row["borrower"].ToString(),
+                                        DateTime.Parse(row["loanDate"].ToString()).ToShortDateString(),
+                                        DateTime.Parse(row["returnDate"].ToString()).ToShortDateString()));
+
+                            }
+
+                        }
+                        else
+                        {
+                            noResults.Text = "no records match the filters";
+
+                        }
+                    }
 
 
 
@@ -177,6 +206,11 @@ namespace SarasaviLibMS.User_controls
                 }
                 finally { connection.Close(); }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            refreshResults();
         }
     }
 }

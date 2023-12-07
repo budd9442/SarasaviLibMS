@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loans));
             borrowBookNum = new TextBox();
             confirmBtn = new Button();
             borrowUserNum = new TextBox();
@@ -40,7 +41,17 @@
             returnLabel = new Label();
             label2 = new Label();
             panel3 = new Panel();
+            materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
+            materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
+            materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            label10 = new Label();
+            button2 = new Button();
+            userFilter = new TextBox();
+            bookFilter = new TextBox();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            label8 = new Label();
+            label9 = new Label();
+            label7 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
             label4 = new Label();
@@ -48,12 +59,12 @@
             label1 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
-            label7 = new Label();
+            noResults = new TextBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // borrowBookNum
@@ -117,7 +128,7 @@
             bookNumLabel.AutoSize = true;
             bookNumLabel.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bookNumLabel.ForeColor = SystemColors.ControlLightLight;
-            bookNumLabel.Location = new Point(30, 26);
+            bookNumLabel.Location = new Point(28, 26);
             bookNumLabel.Name = "bookNumLabel";
             bookNumLabel.Size = new Size(181, 28);
             bookNumLabel.TabIndex = 1;
@@ -200,15 +211,110 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(materialDivider3);
+            panel3.Controls.Add(materialDivider4);
+            panel3.Controls.Add(materialDivider2);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(button2);
+            panel3.Controls.Add(userFilter);
+            panel3.Controls.Add(bookFilter);
             panel3.Controls.Add(materialDivider1);
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(label9);
             panel3.Controls.Add(label7);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(483, 566);
             panel3.TabIndex = 7;
+            // 
+            // materialDivider3
+            // 
+            materialDivider3.BackColor = Color.FromArgb(30, 0, 0, 0);
+            materialDivider3.Depth = 0;
+            materialDivider3.Dock = DockStyle.Left;
+            materialDivider3.Location = new Point(0, 10);
+            materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider3.Name = "materialDivider3";
+            materialDivider3.Size = new Size(10, 556);
+            materialDivider3.TabIndex = 9;
+            materialDivider3.Text = "materialDivider3";
+            // 
+            // materialDivider4
+            // 
+            materialDivider4.BackColor = Color.FromArgb(30, 0, 0, 0);
+            materialDivider4.Depth = 0;
+            materialDivider4.Dock = DockStyle.Top;
+            materialDivider4.Location = new Point(0, 0);
+            materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider4.Name = "materialDivider4";
+            materialDivider4.Size = new Size(473, 10);
+            materialDivider4.TabIndex = 8;
+            materialDivider4.Text = "materialDivider2";
+            // 
+            // materialDivider2
+            // 
+            materialDivider2.BackColor = Color.FromArgb(30, 0, 0, 0);
+            materialDivider2.Depth = 0;
+            materialDivider2.Location = new Point(3, 418);
+            materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider2.Name = "materialDivider2";
+            materialDivider2.Size = new Size(480, 10);
+            materialDivider2.TabIndex = 8;
+            materialDivider2.Text = "materialDivider2";
+            // 
+            // label10
+            // 
+            label10.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.Control;
+            label10.Location = new Point(16, 163);
+            label10.Name = "label10";
+            label10.Size = new Size(433, 216);
+            label10.TabIndex = 4;
+            label10.Text = resources.GetString("label10.Text");
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(42, 45, 53);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 10.8F);
+            button2.ForeColor = SystemColors.ControlDark;
+            button2.Location = new Point(314, 489);
+            button2.Name = "button2";
+            button2.Size = new Size(135, 59);
+            button2.TabIndex = 7;
+            button2.Text = "Filter";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // userFilter
+            // 
+            userFilter.BackColor = Color.FromArgb(32, 35, 43);
+            userFilter.BorderStyle = BorderStyle.None;
+            userFilter.Font = new Font("Segoe UI", 10.8F);
+            userFilter.ForeColor = SystemColors.Control;
+            userFilter.Location = new Point(199, 520);
+            userFilter.Name = "userFilter";
+            userFilter.PlaceholderText = "0001";
+            userFilter.Size = new Size(92, 24);
+            userFilter.TabIndex = 6;
+            userFilter.TextAlign = HorizontalAlignment.Center;
+            // 
+            // bookFilter
+            // 
+            bookFilter.BackColor = Color.FromArgb(32, 35, 43);
+            bookFilter.BorderStyle = BorderStyle.None;
+            bookFilter.Font = new Font("Segoe UI", 10.8F);
+            bookFilter.ForeColor = SystemColors.Control;
+            bookFilter.Location = new Point(199, 486);
+            bookFilter.Name = "bookFilter";
+            bookFilter.PlaceholderText = "A0001";
+            bookFilter.Size = new Size(92, 24);
+            bookFilter.TabIndex = 6;
+            bookFilter.TextAlign = HorizontalAlignment.Center;
             // 
             // materialDivider1
             // 
@@ -221,6 +327,39 @@
             materialDivider1.Size = new Size(10, 566);
             materialDivider1.TabIndex = 0;
             materialDivider1.Text = "materialDivider1";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ControlDarkDark;
+            label8.Location = new Point(28, 520);
+            label8.Name = "label8";
+            label8.Size = new Size(124, 28);
+            label8.TabIndex = 1;
+            label8.Text = "User number";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ControlDark;
+            label9.Location = new Point(30, 449);
+            label9.Name = "label9";
+            label9.Size = new Size(64, 28);
+            label9.TabIndex = 1;
+            label9.Text = "Filters";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.ControlDarkDark;
+            label7.Location = new Point(28, 486);
+            label7.Name = "label7";
+            label7.Size = new Size(130, 28);
+            label7.TabIndex = 1;
+            label7.Text = "Book number";
             // 
             // flowLayoutPanel1
             // 
@@ -280,7 +419,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(36, 9);
+            label5.Location = new Point(19, 8);
             label5.Name = "label5";
             label5.Size = new Size(48, 23);
             label5.TabIndex = 4;
@@ -297,46 +436,35 @@
             label6.TabIndex = 4;
             label6.Text = "Recent Loans";
             // 
-            // textBox3
+            // noResults
             // 
-            textBox3.BackColor = Color.FromArgb(32, 35, 43);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.ForeColor = SystemColors.Window;
-            textBox3.Location = new Point(42, 466);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Book number";
-            textBox3.Size = new Size(146, 31);
-            textBox3.TabIndex = 6;
+            noResults.BackColor = Color.FromArgb(32, 35, 43);
+            noResults.BorderStyle = BorderStyle.None;
+            noResults.Font = new Font("Segoe UI", 10.8F);
+            noResults.ForeColor = SystemColors.Control;
+            noResults.Location = new Point(636, 133);
+            noResults.Name = "noResults";
+            noResults.PlaceholderText = "no records match the filters";
+            noResults.Size = new Size(229, 24);
+            noResults.TabIndex = 6;
+            noResults.Visible = false;
             // 
-            // textBox1
+            // pictureBox1
             // 
-            textBox1.BackColor = Color.FromArgb(32, 35, 43);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(42, 503);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "User number";
-            textBox1.Size = new Size(146, 31);
-            textBox1.TabIndex = 6;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.Control;
-            label7.Location = new Point(17, 419);
-            label7.Name = "label7";
-            label7.Size = new Size(75, 31);
-            label7.TabIndex = 4;
-            label7.Text = "Filters";
+            pictureBox1.Image = Properties.Resources.Literature;
+            pictureBox1.Location = new Point(156, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(160, 105);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // Loans
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(32, 35, 43);
+            Controls.Add(noResults);
             Controls.Add(panel2);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel3);
@@ -352,6 +480,7 @@
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -377,8 +506,17 @@
         private Label label5;
         private Label label6;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private TextBox textBox1;
-        private TextBox textBox3;
+        private TextBox userFilter;
+        private TextBox bookFilter;
+        private Button button2;
+        private TextBox noResults;
+        private MaterialSkin.Controls.MaterialDivider materialDivider2;
+        private Label label8;
+        private Label label9;
         private Label label7;
+        private MaterialSkin.Controls.MaterialDivider materialDivider3;
+        private MaterialSkin.Controls.MaterialDivider materialDivider4;
+        private Label label10;
+        private PictureBox pictureBox1;
     }
 }
