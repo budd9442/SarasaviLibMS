@@ -68,11 +68,11 @@ namespace SarasaviLibMS.User_controls
 
                         string insertData = "INSERT INTO books " +
                             "(classification,number,title,publisher,borrowable,id) VALUES" +
-                            string.Format("('{0}',{1},'{2}','{3}',{4},'{5}')",
+                            string.Format("('{0}',{1},'{2}','{3}','{4}','{5}')",
                             addBookCategory.Text, nextNumber,
                             title,
                             addBookPublisher.Text,
-                            addBookBorrow.Checked ? 1 : 0,
+                            addBookBorrow.Checked ? 'y' : 'n',
                             copies == 0 ? addBookCategory.Text + nextNumber.ToString("D4") : mainCopyid + (copies).ToString() // if nextcopy != 0, maincopyid is never null
                             );
                         using (SqlCommand command = new SqlCommand(insertData, connection))
@@ -113,16 +113,7 @@ namespace SarasaviLibMS.User_controls
 
         }
 
-        private void listView1_ControlAdded(object sender, ControlEventArgs e)
-        {
-            results += 1;
-        }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            panel3.Visible = true;
-            pictureBox3.Visible = false;
-        }
 
         private void refreshResults()
         {

@@ -36,7 +36,7 @@ namespace SarasaviLibMS.User_controls
                 {
                     connection.Open();
                     string getData = string.Format
-                        ("SELECT * FROM members WHERE name LIKE '%{0}%' OR address LIKE '%{0}%' OR nic LIKE '%{0}%'", textBox1.Text);
+                        ("SELECT * FROM members WHERE name LIKE '%{0}%' OR address LIKE '%{0}%' OR nic LIKE '%{0}%'", textBox3.Text);
                     using (SqlCommand comm = new SqlCommand(getData, connection))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(comm);
@@ -125,9 +125,9 @@ namespace SarasaviLibMS.User_controls
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length > 0)
+            if (textBox3.Text.Length > 0)
             {
                 noResults.Visible = true;
             }

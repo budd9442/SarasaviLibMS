@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace SarasaviLibMS.User_controls
 {
-    public partial class Borrowals : UserControl
+    public partial class loanItem : UserControl
     {
-        public Borrowals()
+        public loanItem( string a, string b, string c, string d)
         {
             InitializeComponent();
+            bookNumber.Text = a;
+            userNumber.Text = b;
+            date.Text = c;
+            returnDate.Text = d;
+        }
+
+        private void loanItem_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

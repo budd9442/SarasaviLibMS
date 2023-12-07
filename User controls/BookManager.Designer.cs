@@ -40,17 +40,14 @@
             panel2 = new Panel();
             panel3 = new Panel();
             noResults = new Label();
-            pictureBox3 = new PictureBox();
-            panel1 = new Panel();
-            pictureBox2 = new PictureBox();
+            panel4 = new Panel();
             textBox1 = new TextBox();
+            label4 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -149,8 +146,6 @@
             // 
             panel2.BackColor = Color.FromArgb(32, 35, 43);
             panel2.Controls.Add(panel3);
-            panel2.Controls.Add(pictureBox3);
-            panel2.Controls.Add(panel1);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
@@ -159,7 +154,6 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(noResults);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(addBookTItle);
             panel3.Controls.Add(addBookBorrow);
@@ -170,17 +164,16 @@
             panel3.Controls.Add(label1);
             panel3.Controls.Add(label2);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 42);
+            panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(342, 643);
+            panel3.Size = new Size(342, 685);
             panel3.TabIndex = 4;
-            panel3.Visible = false;
             // 
             // noResults
             // 
             noResults.AutoSize = true;
             noResults.ForeColor = SystemColors.Control;
-            noResults.Location = new Point(144, 13);
+            noResults.Location = new Point(467, 15);
             noResults.Name = "noResults";
             noResults.Size = new Size(84, 20);
             noResults.TabIndex = 2;
@@ -188,46 +181,40 @@
             noResults.Visible = false;
             noResults.Click += noResults_Click;
             // 
-            // pictureBox3
+            // panel4
             // 
-            pictureBox3.Image = Properties.Resources.Add_Book;
-            pictureBox3.Location = new Point(97, 314);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(119, 107);
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(32, 35, 43);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(textBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(342, 42);
-            panel1.TabIndex = 7;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.Search;
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(37, 34);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            panel4.Controls.Add(noResults);
+            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(label4);
+            panel4.Dock = DockStyle.Bottom;
+            panel4.Location = new Point(342, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(690, 42);
+            panel4.TabIndex = 6;
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(40, 0);
+            textBox1.BackColor = Color.FromArgb(32, 35, 43);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.Window;
+            textBox1.Location = new Point(82, 6);
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "                      Search";
-            textBox1.Size = new Size(300, 34);
-            textBox1.TabIndex = 0;
+            textBox1.PlaceholderText = "    title, book number or publisher ";
+            textBox1.Size = new Size(364, 31);
+            textBox1.TabIndex = 5;
             textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlDark;
+            label4.Location = new Point(6, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(70, 28);
+            label4.TabIndex = 3;
+            label4.Text = "Search";
             // 
             // flowLayoutPanel1
             // 
@@ -235,10 +222,9 @@
             flowLayoutPanel1.BackColor = Color.FromArgb(42, 45, 53);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(342, 0);
+            flowLayoutPanel1.Location = new Point(342, 42);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(0, 40, 0, 0);
-            flowLayoutPanel1.Size = new Size(690, 685);
+            flowLayoutPanel1.Size = new Size(690, 643);
             flowLayoutPanel1.TabIndex = 6;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -248,6 +234,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackColor = Color.FromArgb(42, 45, 53);
+            Controls.Add(panel4);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel2);
             Name = "BookManager";
@@ -256,10 +243,8 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -275,13 +260,12 @@
         private TextBox addBookAuthor;
         private Button addBookBtn;
         private Panel panel2;
-        private Panel panel1;
-        private TextBox textBox1;
-        private PictureBox pictureBox2;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel3;
-        private PictureBox pictureBox3;
         private Label noResults;
         private TextBox addBookPublisher;
+        private TextBox textBox1;
+        private Panel panel4;
+        private Label label4;
     }
 }

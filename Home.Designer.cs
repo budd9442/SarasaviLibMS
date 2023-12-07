@@ -43,6 +43,7 @@
             tabPage2 = new TabPage();
             pictureBox13 = new PictureBox();
             pictureBox14 = new PictureBox();
+            borrowals1 = new User_controls.Loans();
             tabPage3 = new TabPage();
             pictureBox11 = new PictureBox();
             pictureBox12 = new PictureBox();
@@ -119,7 +120,7 @@
             burrowalsBtn.Padding = new Padding(0, 0, 16, 0);
             burrowalsBtn.Size = new Size(231, 76);
             burrowalsBtn.TabIndex = 0;
-            burrowalsBtn.Text = "Borrowals";
+            burrowalsBtn.Text = "Book Loans";
             burrowalsBtn.TextAlign = ContentAlignment.MiddleRight;
             burrowalsBtn.UseVisualStyleBackColor = false;
             burrowalsBtn.Click += burrowalsBtn_Click;
@@ -254,6 +255,7 @@
             materialTabControl1.SelectedIndex = 0;
             materialTabControl1.Size = new Size(1040, 718);
             materialTabControl1.TabIndex = 2;
+            materialTabControl1.SelectedIndexChanged += materialTabControl1_TabIndexChanged;
             // 
             // tabPage1
             // 
@@ -293,39 +295,53 @@
             // 
             // tabPage2
             // 
-            tabPage2.BackColor = Color.FromArgb(61, 61, 61);
+            tabPage2.BackColor = Color.FromArgb(32, 35, 43);
             tabPage2.Controls.Add(pictureBox13);
             tabPage2.Controls.Add(pictureBox14);
-            tabPage2.Location = new Point(4, 104);
+            tabPage2.Controls.Add(borrowals1);
+            tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(192, 0);
+            tabPage2.Size = new Size(1032, 685);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             // 
             // pictureBox13
             // 
-            pictureBox13.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox13.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox13.Image = Properties.Resources.Minus;
             pictureBox13.Location = new Point(960, 0);
             pictureBox13.Name = "pictureBox13";
             pictureBox13.Size = new Size(40, 33);
             pictureBox13.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox13.TabIndex = 3;
+            pictureBox13.TabIndex = 6;
             pictureBox13.TabStop = false;
             pictureBox13.Click += minimize_Click;
             // 
             // pictureBox14
             // 
-            pictureBox14.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox14.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox14.Image = Properties.Resources.Close;
             pictureBox14.Location = new Point(996, 0);
             pictureBox14.Name = "pictureBox14";
             pictureBox14.Size = new Size(40, 33);
             pictureBox14.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox14.TabIndex = 4;
+            pictureBox14.TabIndex = 7;
             pictureBox14.TabStop = false;
             pictureBox14.Click += exit_Click;
+            // 
+            // borrowals1
+            // 
+            borrowals1.BackColor = Color.FromArgb(32, 35, 43);
+            borrowals1.Dock = DockStyle.Fill;
+            borrowals1.ForeColor = Color.LightGray;
+            borrowals1.Location = new Point(3, 3);
+            borrowals1.Name = "borrowals1";
+            borrowals1.Size = new Size(1026, 679);
+            borrowals1.TabIndex = 5;
+            borrowals1.MouseDown += panelMouseDown;
+            borrowals1.MouseMove += panelMouseMove;
+            borrowals1.MouseUp += panelMouseUp;
             // 
             // tabPage3
             // 
@@ -438,9 +454,9 @@
             tabPage6.Controls.Add(pictureBox3);
             tabPage6.Controls.Add(pictureBox6);
             tabPage6.Controls.Add(userManager1);
-            tabPage6.Location = new Point(4, 29);
+            tabPage6.Location = new Point(4, 104);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1032, 685);
+            tabPage6.Size = new Size(192, 0);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "tabPage6";
             // 
@@ -475,7 +491,7 @@
             userManager1.Location = new Point(0, 0);
             userManager1.Margin = new Padding(3, 40, 3, 3);
             userManager1.Name = "userManager1";
-            userManager1.Size = new Size(1032, 685);
+            userManager1.Size = new Size(192, 0);
             userManager1.TabIndex = 0;
             userManager1.MouseDown += panelMouseDown;
             userManager1.MouseMove += panelMouseMove;
@@ -487,9 +503,9 @@
             tabPage7.Controls.Add(pictureBox4);
             tabPage7.Controls.Add(pictureBox5);
             tabPage7.Controls.Add(bookManager1);
-            tabPage7.Location = new Point(4, 29);
+            tabPage7.Location = new Point(4, 104);
             tabPage7.Name = "tabPage7";
-            tabPage7.Size = new Size(1032, 685);
+            tabPage7.Size = new Size(192, 0);
             tabPage7.TabIndex = 6;
             tabPage7.Text = "tabPage7";
             // 
@@ -524,7 +540,7 @@
             bookManager1.Dock = DockStyle.Fill;
             bookManager1.Location = new Point(0, 0);
             bookManager1.Name = "bookManager1";
-            bookManager1.Size = new Size(1032, 685);
+            bookManager1.Size = new Size(192, 0);
             bookManager1.TabIndex = 0;
             bookManager1.MouseDown += panelMouseDown;
             bookManager1.MouseMove += panelMouseMove;
@@ -595,13 +611,14 @@
         private PictureBox pictureBox8;
         private PictureBox pictureBox3;
         private PictureBox pictureBox6;
-        private PictureBox pictureBox13;
-        private PictureBox pictureBox14;
         private PictureBox pictureBox11;
         private PictureBox pictureBox12;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
         private PictureBox minimize;
         private PictureBox exit;
+        private User_controls.Loans borrowals1;
+        private PictureBox pictureBox13;
+        private PictureBox pictureBox14;
     }
 }

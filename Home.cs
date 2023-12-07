@@ -146,5 +146,10 @@ namespace SarasaviLibMS
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void materialTabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
+        }
     }
 }
