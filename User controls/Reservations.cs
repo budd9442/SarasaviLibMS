@@ -25,7 +25,7 @@ namespace SarasaviLibMS.User_controls
         {
 
         }
-        private void refreshResults()
+        public void refreshResults()
         {
             flowLayoutPanel1.Controls.Clear();
             if (connection.State != ConnectionState.Open)
@@ -45,19 +45,22 @@ namespace SarasaviLibMS.User_controls
                             foreach (DataRow row in table.Rows)
                             {
 
-                                flowLayoutPanel1.Controls.Add(
-                                    new loanItem(
-                                        row["book"].ToString(),
-                                        row["borrower"].ToString(),
-                                        DateTime.Parse(row["loanDate"].ToString()).ToShortDateString(),
-                                        DateTime.Parse(row["returnDate"].ToString()).ToShortDateString()));
+                                string checkBookStatus = String.Format("SELECT status from books where id='{0}'", row["book"]);
+                                string status;
+                                using (SqlCommand cmd = new SqlCommand(checkBookStatus, connection))
+                                {
+                                    status = cmd.ExecuteScalar().ToString();
+
+                                }
+                                flowLayoutPanel1.Controls.Add(new reservationItem(row["book"].ToString(), row["member"].ToString(), status));
+
+
 
                             }
 
                         }
                         else
                         {
-                            noResults.Text = "no records match the filters";
 
                         }
                     }
@@ -82,7 +85,17 @@ namespace SarasaviLibMS.User_controls
                 try
                 {
                     connection.Open();
-                    bool userExists, bookExists, available;
+                    string checkIfReserved = string.Format("SELECT COUNT(*) FROM reservations WHERE book= '{0}'", borrowBookNum.Text.ToUpper());
+                    using (SqlCommand cmd = new SqlCommand(checkIfReserved, connection))
+                    {
+                        if ((int)cmd.ExecuteScalar() != 0)
+                        {
+                            MessageBox.Show("Book already reserved", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
+
+                    }
                     string checkUserNumber = string.Format("SELECT COUNT(*) FROM members WHERE number= {0}", borrowUserNum.Text.Trim());
                     using (SqlCommand cmd = new SqlCommand(checkUserNumber, connection))
                     {
@@ -110,7 +123,7 @@ namespace SarasaviLibMS.User_controls
                     {
                         if ((int)cmd.ExecuteScalar() != 0)
                         {
-                            DialogResult dResult =  MessageBox.Show("Book is already available. Borrow instead?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            DialogResult dResult = MessageBox.Show("Book is already available. Borrow instead?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                             if (dResult == DialogResult.Yes)
                             {
                                 Home home = this.ParentForm as Home;
@@ -140,10 +153,24 @@ namespace SarasaviLibMS.User_controls
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   
+
                 }
-                finally { connection.Close(); }
+                finally
+                {
+                    connection.Close();
+                    refreshResults();
+                }
             }
+        }
+
+        private void Reservations_Load(object sender, EventArgs e)
+        {
+            refreshResults();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            refreshResults();
         }
     }
 }

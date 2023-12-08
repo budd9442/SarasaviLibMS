@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            table1 = new Label();
+            statLabel = new Label();
             userLabel = new Label();
             bookLabel = new Label();
             pictureBox1 = new PictureBox();
@@ -42,28 +42,28 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(151, 188, 255);
-            panel1.Controls.Add(table1);
+            panel1.Controls.Add(statLabel);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(104, 38);
             panel1.TabIndex = 0;
             // 
-            // table1
+            // statLabel
             // 
-            table1.AutoSize = true;
-            table1.Location = new Point(16, 10);
-            table1.Name = "table1";
-            table1.Size = new Size(62, 20);
-            table1.TabIndex = 0;
-            table1.Text = "Pending";
+            statLabel.AutoSize = true;
+            statLabel.Location = new Point(16, 10);
+            statLabel.Name = "statLabel";
+            statLabel.Size = new Size(62, 20);
+            statLabel.TabIndex = 0;
+            statLabel.Text = "Pending";
             // 
             // userLabel
             // 
             userLabel.AutoSize = true;
             userLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             userLabel.ForeColor = SystemColors.ControlLightLight;
-            userLabel.Location = new Point(126, 8);
+            userLabel.Location = new Point(145, 8);
             userLabel.Name = "userLabel";
             userLabel.Size = new Size(46, 23);
             userLabel.TabIndex = 0;
@@ -74,7 +74,7 @@
             bookLabel.AutoSize = true;
             bookLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bookLabel.ForeColor = SystemColors.ControlLightLight;
-            bookLabel.Location = new Point(205, 8);
+            bookLabel.Location = new Point(262, 7);
             bookLabel.Name = "bookLabel";
             bookLabel.Size = new Size(57, 23);
             bookLabel.TabIndex = 0;
@@ -89,6 +89,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -113,6 +114,7 @@
             Controls.Add(panel1);
             Name = "reservationItem";
             Size = new Size(512, 38);
+            Load += reservationItem_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -124,7 +126,7 @@
         #endregion
 
         private Panel panel1;
-        private Label table1;
+        private Label statLabel;
         private Label userLabel;
         private Label bookLabel;
         private PictureBox pictureBox1;

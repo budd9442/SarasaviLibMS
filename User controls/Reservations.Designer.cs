@@ -31,8 +31,9 @@
             label1 = new Label();
             label5 = new Label();
             panel2 = new Panel();
+            label3 = new Label();
+            label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            reservationItem1 = new reservationItem();
             materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
@@ -47,15 +48,11 @@
             userNumLabel = new Label();
             bookNumLabel = new Label();
             panel1 = new Panel();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
             label7 = new Label();
-            label9 = new Label();
             label8 = new Label();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
             panel2.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -66,18 +63,18 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(261, 10);
+            label1.Location = new Point(251, 10);
             label1.Name = "label1";
-            label1.Size = new Size(79, 23);
+            label1.Size = new Size(101, 23);
             label1.TabIndex = 3;
-            label1.Text = "Borrower";
+            label1.Text = "Reserved by";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(178, 9);
+            label5.Location = new Point(141, 10);
             label5.Name = "label5";
             label5.Size = new Size(48, 23);
             label5.TabIndex = 4;
@@ -86,31 +83,46 @@
             // panel2
             // 
             panel2.Controls.Add(label1);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
             panel2.Controls.Add(label5);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(520, 149);
+            panel2.Location = new Point(520, 45);
             panel2.Name = "panel2";
-            panel2.Size = new Size(512, 40);
+            panel2.Size = new Size(512, 44);
             panel2.TabIndex = 15;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.Control;
+            label3.Location = new Point(440, 10);
+            label3.Name = "label3";
+            label3.Size = new Size(66, 23);
+            label3.TabIndex = 4;
+            label3.Text = "Actions";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(19, 10);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 23);
+            label2.TabIndex = 4;
+            label2.Text = "Status";
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(reservationItem1);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(520, 189);
+            flowLayoutPanel1.Location = new Point(520, 89);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(512, 496);
+            flowLayoutPanel1.Size = new Size(512, 596);
             flowLayoutPanel1.TabIndex = 14;
             flowLayoutPanel1.WrapContents = false;
-            // 
-            // reservationItem1
-            // 
-            reservationItem1.BackColor = Color.FromArgb(42, 45, 53);
-            reservationItem1.Location = new Point(3, 3);
-            reservationItem1.Name = "reservationItem1";
-            reservationItem1.Size = new Size(512, 38);
-            reservationItem1.TabIndex = 0;
             // 
             // materialDivider3
             // 
@@ -156,7 +168,7 @@
             cancelBtn.ForeColor = SystemColors.ControlLightLight;
             cancelBtn.Image = Properties.Resources.Close;
             cancelBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            cancelBtn.Location = new Point(301, 386);
+            cancelBtn.Location = new Point(283, 395);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.Size = new Size(110, 77);
             cancelBtn.TabIndex = 3;
@@ -167,7 +179,7 @@
             // 
             borrowUserNum.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             borrowUserNum.ForeColor = SystemColors.ActiveCaptionText;
-            borrowUserNum.Location = new Point(320, 289);
+            borrowUserNum.Location = new Point(302, 298);
             borrowUserNum.Name = "borrowUserNum";
             borrowUserNum.PlaceholderText = "0001";
             borrowUserNum.Size = new Size(109, 34);
@@ -183,7 +195,7 @@
             confirmBtn.ForeColor = SystemColors.ControlLightLight;
             confirmBtn.Image = Properties.Resources.Done;
             confirmBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            confirmBtn.Location = new Point(141, 383);
+            confirmBtn.Location = new Point(123, 392);
             confirmBtn.Name = "confirmBtn";
             confirmBtn.Size = new Size(110, 77);
             confirmBtn.TabIndex = 3;
@@ -195,7 +207,7 @@
             // 
             borrowBookNum.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             borrowBookNum.ForeColor = SystemColors.ActiveCaptionText;
-            borrowBookNum.Location = new Point(320, 338);
+            borrowBookNum.Location = new Point(302, 347);
             borrowBookNum.Name = "borrowBookNum";
             borrowBookNum.PlaceholderText = "A0001";
             borrowBookNum.Size = new Size(109, 34);
@@ -210,12 +222,13 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10.8F);
             button2.ForeColor = SystemColors.ControlDark;
-            button2.Location = new Point(387, 47);
+            button2.Location = new Point(359, 33);
             button2.Name = "button2";
             button2.Size = new Size(105, 58);
             button2.TabIndex = 7;
             button2.Text = "Filter";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // userFilter
             // 
@@ -223,7 +236,7 @@
             userFilter.BorderStyle = BorderStyle.None;
             userFilter.Font = new Font("Segoe UI", 10.8F);
             userFilter.ForeColor = SystemColors.Control;
-            userFilter.Location = new Point(152, 84);
+            userFilter.Location = new Point(180, 70);
             userFilter.Name = "userFilter";
             userFilter.PlaceholderText = "0001";
             userFilter.Size = new Size(92, 24);
@@ -236,7 +249,7 @@
             bookFilter.BorderStyle = BorderStyle.None;
             bookFilter.Font = new Font("Segoe UI", 10.8F);
             bookFilter.ForeColor = SystemColors.Control;
-            bookFilter.Location = new Point(152, 50);
+            bookFilter.Location = new Point(180, 36);
             bookFilter.Name = "bookFilter";
             bookFilter.PlaceholderText = "A0001";
             bookFilter.Size = new Size(92, 24);
@@ -260,7 +273,7 @@
             userNumLabel.AutoSize = true;
             userNumLabel.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             userNumLabel.ForeColor = SystemColors.ControlLightLight;
-            userNumLabel.Location = new Point(120, 292);
+            userNumLabel.Location = new Point(102, 301);
             userNumLabel.Name = "userNumLabel";
             userNumLabel.Size = new Size(171, 28);
             userNumLabel.TabIndex = 1;
@@ -271,7 +284,7 @@
             bookNumLabel.AutoSize = true;
             bookNumLabel.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bookNumLabel.ForeColor = SystemColors.ControlLightLight;
-            bookNumLabel.Location = new Point(120, 341);
+            bookNumLabel.Location = new Point(102, 350);
             bookNumLabel.Name = "bookNumLabel";
             bookNumLabel.Size = new Size(181, 28);
             bookNumLabel.TabIndex = 1;
@@ -280,10 +293,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(42, 45, 53);
-            panel1.Controls.Add(checkBox2);
-            panel1.Controls.Add(checkBox1);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(bookFilter);
             panel1.Controls.Add(userFilter);
@@ -296,56 +306,23 @@
             panel1.TabIndex = 11;
             panel1.Paint += panel1_Paint;
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.ForeColor = SystemColors.ControlDarkDark;
-            checkBox2.Location = new Point(271, 81);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(84, 24);
-            checkBox2.TabIndex = 8;
-            checkBox2.Text = "Pending";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.ForeColor = SystemColors.ControlDarkDark;
-            checkBox1.Location = new Point(271, 47);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(93, 24);
-            checkBox1.TabIndex = 8;
-            checkBox1.Text = "Available";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.ControlDarkDark;
-            label7.Location = new Point(18, 47);
+            label7.Location = new Point(46, 33);
             label7.Name = "label7";
             label7.Size = new Size(130, 28);
             label7.TabIndex = 1;
             label7.Text = "Book number";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ControlDark;
-            label9.Location = new Point(20, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(64, 28);
-            label9.TabIndex = 1;
-            label9.Text = "Filters";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ControlDarkDark;
-            label8.Location = new Point(18, 81);
+            label8.Location = new Point(46, 67);
             label8.Name = "label8";
             label8.Size = new Size(124, 28);
             label8.TabIndex = 1;
@@ -374,7 +351,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Bookmark;
-            pictureBox1.Location = new Point(198, 55);
+            pictureBox1.Location = new Point(180, 64);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(157, 146);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -391,9 +368,9 @@
             Controls.Add(panel3);
             Name = "Reservations";
             Size = new Size(1032, 685);
+            Load += Reservations_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -422,12 +399,10 @@
         private Label bookNumLabel;
         private Panel panel1;
         private Label label8;
-        private Label label9;
         private Panel panel3;
         private Label label7;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
         private PictureBox pictureBox1;
-        private reservationItem reservationItem1;
+        private Label label3;
+        private Label label2;
     }
 }

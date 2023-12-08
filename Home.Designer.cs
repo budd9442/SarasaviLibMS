@@ -428,7 +428,7 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox7.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox7.Image = Properties.Resources.Minus;
             pictureBox7.Location = new Point(960, 0);
             pictureBox7.Name = "pictureBox7";
@@ -436,10 +436,11 @@
             pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox7.TabIndex = 4;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += minimize_Click;
             // 
             // pictureBox8
             // 
-            pictureBox8.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox8.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox8.Image = Properties.Resources.Close;
             pictureBox8.Location = new Point(996, 0);
             pictureBox8.Name = "pictureBox8";
@@ -447,6 +448,7 @@
             pictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox8.TabIndex = 5;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += exit_Click;
             // 
             // reservations1
             // 
@@ -456,6 +458,9 @@
             reservations1.Name = "reservations1";
             reservations1.Size = new Size(1032, 685);
             reservations1.TabIndex = 3;
+            reservations1.MouseDown += panelMouseMove;
+            reservations1.MouseMove += panelMouseMove;
+            reservations1.MouseUp += panelMouseUp;
             // 
             // tabPage6
             // 
