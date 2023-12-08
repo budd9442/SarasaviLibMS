@@ -54,11 +54,18 @@ namespace SarasaviLibMS.User_controls
                     try
                     {
                         connection.Open();
+                        bool bookExists = false;
                         bool borrowable = false;
                         bool available = false;
                         bool userExists = false;
                         bool usercanBorrow = false;
 
+                        string checkBookNumber = string.Format("SELECT COUNT(*) FROM books WHERE id= '{0}'", borrowBookNum.Text.ToUpper());
+                        using (SqlCommand cmd = new SqlCommand(checkBookNumber, connection))
+                        {
+                            bookExists = (int)cmd.ExecuteScalar() > 0 ? true : false;
+
+                        }
                         string checkBookAvailability = string.Format("SELECT COUNT(*) FROM books WHERE id='{0}' AND status='Available'", borrowBookNum.Text.ToUpper().Trim());
                         using (SqlCommand cmd = new SqlCommand(checkBookAvailability, connection))
                         {
@@ -84,9 +91,36 @@ namespace SarasaviLibMS.User_controls
 
                         }
 
+                        if (!bookExists)
+                        {
+                            MessageBox.Show("Invalid book id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
+                        if (!userExists)
+                        {
+                            MessageBox.Show("Invalid user id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
                         if (!borrowable)
                         {
                             MessageBox.Show("Book not borrowable", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
+
+                        if (!available)
+                        {
+                            DialogResult dResult = MessageBox.Show("Book not available. Add a reservation instead?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            if (dResult == DialogResult.Yes)
+                            {
+                                Home home = this.ParentForm as Home;
+                                if (home != null)
+                                {
+                                    home.switchToReservations();
+                                }
+                            }
                             connection.Close();
                             return;
                         }
@@ -97,46 +131,48 @@ namespace SarasaviLibMS.User_controls
                             return;
                         }
 
-
-                        if (borrowable && available && userExists && usercanBorrow)
+                        string getTitle = string.Format("SELECT title FROM books WHERE id = '{0}'", borrowBookNum.Text.ToUpper().Trim());
+                        string getName = string.Format("SELECT name FROM members where number = '{0}'", borrowUserNum.Text.Trim());
+                        string title;
+                        string name;
+                        using (SqlCommand cmd = new SqlCommand(getTitle, connection))
                         {
-                            string getTitle = string.Format("SELECT title FROM books WHERE id = '{0}'", borrowBookNum.Text.ToUpper().Trim());
-                            string getName = string.Format("SELECT name FROM members where number = '{0}'", borrowUserNum.Text.Trim());
-                            string title;
-                            string name;
-                            using (SqlCommand cmd = new SqlCommand(getTitle, connection))
-                            {
-                                title = (string)cmd.ExecuteScalar();
-                            }
-                            using (SqlCommand cmd = new SqlCommand(getName, connection))
-                            {
-                                name = (string)cmd.ExecuteScalar();
-                            }
-
-                            DialogResult result = MessageBox.Show(
-                                "Book : " + title + "\n\n" +
-                                "Borrower : " + name + "\n\n" +
-                                "Return : " + borrrowReturnDate.Text,
-                                "Confirm loan",
-                                MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                            if (result == DialogResult.OK)
-                            {
-                                string insertData = string.Format("INSERT INTO loans (borrower,book,loanDate,returnDate) VALUES({0},'{1}','{2}','{3}')",
-                                    borrowUserNum.Text.Trim(),
-                                    borrowBookNum.Text.ToUpper().Trim(),
-                                    DateTime.Now.ToShortDateString(),
-                                    DateTime.Now.AddDays(14).ToShortDateString()
-                                    );
-                                using (SqlCommand command = new SqlCommand(insertData, connection))
-                                {
-                                    command.ExecuteNonQuery();
-                                    MessageBox.Show("success");
-                                    connection.Close();
-                                    refreshResults();
-                                }
-
-                            }
+                            title = (string)cmd.ExecuteScalar();
                         }
+                        using (SqlCommand cmd = new SqlCommand(getName, connection))
+                        {
+                            name = (string)cmd.ExecuteScalar();
+                        }
+
+                        DialogResult result = MessageBox.Show(
+                            "Book : " + title + "\n\n" +
+                            "Borrower : " + name + "\n\n" +
+                            "Return : " + borrrowReturnDate.Text,
+                            "Confirm loan",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        if (result == DialogResult.OK)
+                        {
+                            string insertData = string.Format("INSERT INTO loans (borrower,book,loanDate,returnDate) VALUES({0},'{1}','{2}','{3}')",
+                                borrowUserNum.Text.Trim(),
+                                borrowBookNum.Text.ToUpper().Trim(),
+                                DateTime.Now.ToShortDateString(),
+                                DateTime.Now.AddDays(14).ToShortDateString()
+                                );
+                            using (SqlCommand command = new SqlCommand(insertData, connection))
+                            {
+                                command.ExecuteNonQuery();
+                            }
+                            string updadeBook = string.Format("UPDATE books SET status = 'loaned' WHERE id = '{0}'", borrowBookNum.Text.ToUpper());
+                            using (SqlCommand command = new SqlCommand(updadeBook, connection))
+                            {
+                                command.ExecuteNonQuery();
+                                MessageBox.Show("success");
+                                connection.Close();
+                                refreshResults();
+                            }
+
+                        }
+
                     }
                     catch (Exception ex)
                     {

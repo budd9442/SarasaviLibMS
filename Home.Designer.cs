@@ -53,6 +53,7 @@
             tabPage5 = new TabPage();
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
+            reservations1 = new User_controls.Reservations();
             tabPage6 = new TabPage();
             pictureBox3 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -302,7 +303,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1032, 685);
+            tabPage2.Size = new Size(192, 67);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             // 
@@ -337,7 +338,7 @@
             borrowals1.ForeColor = Color.LightGray;
             borrowals1.Location = new Point(3, 3);
             borrowals1.Name = "borrowals1";
-            borrowals1.Size = new Size(1026, 679);
+            borrowals1.Size = new Size(186, 61);
             borrowals1.TabIndex = 5;
             borrowals1.MouseDown += panelMouseDown;
             borrowals1.MouseMove += panelMouseMove;
@@ -348,9 +349,9 @@
             tabPage3.BackColor = Color.FromArgb(61, 61, 61);
             tabPage3.Controls.Add(pictureBox11);
             tabPage3.Controls.Add(pictureBox12);
-            tabPage3.Location = new Point(4, 104);
+            tabPage3.Location = new Point(4, 54);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(192, 0);
+            tabPage3.Size = new Size(192, 42);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "tabPage3";
             // 
@@ -383,9 +384,9 @@
             tabPage4.BackColor = Color.FromArgb(61, 61, 61);
             tabPage4.Controls.Add(pictureBox9);
             tabPage4.Controls.Add(pictureBox10);
-            tabPage4.Location = new Point(4, 104);
+            tabPage4.Location = new Point(4, 54);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(192, 0);
+            tabPage4.Size = new Size(192, 42);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "tabPage4";
             // 
@@ -418,9 +419,10 @@
             tabPage5.BackColor = Color.FromArgb(61, 61, 61);
             tabPage5.Controls.Add(pictureBox7);
             tabPage5.Controls.Add(pictureBox8);
-            tabPage5.Location = new Point(4, 104);
+            tabPage5.Controls.Add(reservations1);
+            tabPage5.Location = new Point(4, 29);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(192, 0);
+            tabPage5.Size = new Size(1032, 685);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "tabPage5";
             // 
@@ -432,9 +434,8 @@
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(40, 33);
             pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox7.TabIndex = 1;
+            pictureBox7.TabIndex = 4;
             pictureBox7.TabStop = false;
-            pictureBox7.Click += minimize_Click;
             // 
             // pictureBox8
             // 
@@ -444,9 +445,17 @@
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(40, 33);
             pictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox8.TabIndex = 2;
+            pictureBox8.TabIndex = 5;
             pictureBox8.TabStop = false;
-            pictureBox8.Click += exit_Click;
+            // 
+            // reservations1
+            // 
+            reservations1.BackColor = Color.FromArgb(32, 35, 43);
+            reservations1.Dock = DockStyle.Fill;
+            reservations1.Location = new Point(0, 0);
+            reservations1.Name = "reservations1";
+            reservations1.Size = new Size(1032, 685);
+            reservations1.TabIndex = 3;
             // 
             // tabPage6
             // 
@@ -454,9 +463,9 @@
             tabPage6.Controls.Add(pictureBox3);
             tabPage6.Controls.Add(pictureBox6);
             tabPage6.Controls.Add(userManager1);
-            tabPage6.Location = new Point(4, 104);
+            tabPage6.Location = new Point(4, 79);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(192, 0);
+            tabPage6.Size = new Size(192, 17);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "tabPage6";
             // 
@@ -491,7 +500,7 @@
             userManager1.Location = new Point(0, 0);
             userManager1.Margin = new Padding(3, 40, 3, 3);
             userManager1.Name = "userManager1";
-            userManager1.Size = new Size(192, 0);
+            userManager1.Size = new Size(192, 17);
             userManager1.TabIndex = 0;
             userManager1.MouseDown += panelMouseDown;
             userManager1.MouseMove += panelMouseMove;
@@ -607,8 +616,6 @@
         private User_controls.UserManager userManager1;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox8;
         private PictureBox pictureBox3;
         private PictureBox pictureBox6;
         private PictureBox pictureBox11;
@@ -620,5 +627,8 @@
         private User_controls.Loans borrowals1;
         private PictureBox pictureBox13;
         private PictureBox pictureBox14;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox8;
+        private User_controls.Reservations reservations1;
     }
 }

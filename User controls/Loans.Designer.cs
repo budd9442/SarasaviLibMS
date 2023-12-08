@@ -41,6 +41,7 @@
             returnLabel = new Label();
             label2 = new Label();
             panel3 = new Panel();
+            pictureBox1 = new PictureBox();
             materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
@@ -60,11 +61,10 @@
             label5 = new Label();
             label6 = new Label();
             noResults = new TextBox();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // borrowBookNum
@@ -228,6 +228,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(483, 566);
             panel3.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Literature;
+            pictureBox1.Location = new Point(156, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(160, 105);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // materialDivider3
             // 
@@ -419,7 +429,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(19, 8);
+            label5.Location = new Point(31, 8);
             label5.Name = "label5";
             label5.Size = new Size(48, 23);
             label5.TabIndex = 4;
@@ -449,16 +459,6 @@
             noResults.TabIndex = 6;
             noResults.Visible = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.Literature;
-            pictureBox1.Location = new Point(156, 32);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(160, 105);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            // 
             // Loans
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -478,9 +478,9 @@
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -123,11 +123,17 @@ namespace SarasaviLibMS
 
 
         }
-
-        private void button2_Click_1(object sender, EventArgs e)
+        public void switchToReservations()
         {
-            this.WindowState = FormWindowState.Minimized;
+            setButtonColors(true, true, true, true, false, true, true);
+            materialTabControl1.SelectTab(4);
         }
+        public void switchToLoans()
+        {
+            setButtonColors(true, false, true, true, true, true, true);
+            materialTabControl1.SelectTab(1);
+        }
+
 
         private void reservationsBtn_Click(object sender, EventArgs e)
         {
