@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SarasaviLibMS.User_controls
 {
@@ -149,6 +150,8 @@ namespace SarasaviLibMS.User_controls
                     }
 
 
+
+
                 }
                 catch (Exception ex)
                 {
@@ -169,6 +172,11 @@ namespace SarasaviLibMS.User_controls
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            refreshResults();
+        }
+
+        private void Reservations_Paint(object sender, PaintEventArgs e)
         {
             refreshResults();
         }

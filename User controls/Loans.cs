@@ -57,6 +57,7 @@ namespace SarasaviLibMS.User_controls
                         bool bookExists = false;
                         bool borrowable = false;
                         bool available = false;
+                        bool alreadyReserved = false;
                         bool userExists = false;
                         bool usercanBorrow = false;
 
@@ -72,6 +73,26 @@ namespace SarasaviLibMS.User_controls
                             available = (int)cmd.ExecuteScalar() > 0 ? true : false;
 
                         }
+                        if (!available)
+                        {
+                            string checkReservedUser = string.Format("SELECT member FROM reservations WHERE book='{0}'",borrowBookNum.Text.ToUpper().Trim());
+                            using (SqlCommand cmd = new SqlCommand(checkReservedUser, connection))
+                            {
+                                string? output = cmd.ExecuteScalar().ToString();
+                                if(output != null)
+                                {
+                                    if( output == borrowUserNum.Text )
+                                    {
+                                        available = true;
+                                    }
+                                    else
+                                    {
+                                        alreadyReserved = true;
+                                    }
+                                }
+                            }
+                        }
+                        
                         string checkBookBorrowable = string.Format("SELECT COUNT(*) FROM books WHERE id='{0}' AND borrowable='y'", borrowBookNum.Text.ToUpper().Trim());
                         using (SqlCommand cmd = new SqlCommand(checkBookBorrowable, connection))
                         {
@@ -106,6 +127,13 @@ namespace SarasaviLibMS.User_controls
                         if (!borrowable)
                         {
                             MessageBox.Show("Book not borrowable", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
+
+                        if (alreadyReserved)
+                        {
+                            MessageBox.Show("This book is not available and have been reserved by another user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             connection.Close();
                             return;
                         }
@@ -161,6 +189,15 @@ namespace SarasaviLibMS.User_controls
                             using (SqlCommand command = new SqlCommand(insertData, connection))
                             {
                                 command.ExecuteNonQuery();
+                            }
+                            string deleteReservation = string.Format("DELETE FROM reservations WHERE book = '{0}'", borrowBookNum.Text.ToUpper());
+                            using (SqlCommand command = new SqlCommand(deleteReservation, connection))
+                            {
+                                if (command.ExecuteNonQuery() > 0)
+                                {
+                                    MessageBox.Show("Reservation for book " + borrowBookNum.Text + " has been deleted");
+                                }
+
                             }
                             string updadeBook = string.Format("UPDATE books SET status = 'loaned' WHERE id = '{0}'", borrowBookNum.Text.ToUpper());
                             using (SqlCommand command = new SqlCommand(updadeBook, connection))
@@ -245,6 +282,11 @@ namespace SarasaviLibMS.User_controls
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            refreshResults();
+        }
+
+        private void Loans_Paint(object sender, PaintEventArgs e)
         {
             refreshResults();
         }

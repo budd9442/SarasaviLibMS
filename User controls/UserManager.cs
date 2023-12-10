@@ -138,5 +138,10 @@ namespace SarasaviLibMS.User_controls
             refreshResults();
 
         }
+
+        private void UserManager_Paint(object sender, PaintEventArgs e)
+        {
+            refreshResults();
+        }
     }
 }

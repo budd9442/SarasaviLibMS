@@ -41,9 +41,10 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(151, 188, 255);
+            panel1.BackColor = Color.FromArgb(4, 146, 194);
             panel1.Controls.Add(statLabel);
             panel1.Dock = DockStyle.Left;
+            panel1.ForeColor = SystemColors.ControlLightLight;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(104, 38);
@@ -124,12 +125,11 @@
         }
 
         #endregion
-
-        private Panel panel1;
         private Label statLabel;
         private Label userLabel;
         private Label bookLabel;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        public Panel panel1;
     }
 }

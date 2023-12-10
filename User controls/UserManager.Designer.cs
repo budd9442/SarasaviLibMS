@@ -256,6 +256,7 @@
             Controls.Add(panel2);
             Name = "UserManager";
             Size = new Size(1032, 685);
+            Paint += UserManager_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();

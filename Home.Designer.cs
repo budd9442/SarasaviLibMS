@@ -47,6 +47,7 @@
             tabPage3 = new TabPage();
             pictureBox11 = new PictureBox();
             pictureBox12 = new PictureBox();
+            returns1 = new User_controls.Returns();
             tabPage4 = new TabPage();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
@@ -349,6 +350,7 @@
             tabPage3.BackColor = Color.FromArgb(61, 61, 61);
             tabPage3.Controls.Add(pictureBox11);
             tabPage3.Controls.Add(pictureBox12);
+            tabPage3.Controls.Add(returns1);
             tabPage3.Location = new Point(4, 54);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(192, 42);
@@ -357,27 +359,36 @@
             // 
             // pictureBox11
             // 
-            pictureBox11.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox11.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox11.Image = Properties.Resources.Minus;
             pictureBox11.Location = new Point(960, 0);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(40, 33);
             pictureBox11.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox11.TabIndex = 3;
+            pictureBox11.TabIndex = 6;
             pictureBox11.TabStop = false;
             pictureBox11.Click += minimize_Click;
             // 
             // pictureBox12
             // 
-            pictureBox12.BackColor = Color.FromArgb(22, 25, 33);
+            pictureBox12.BackColor = Color.FromArgb(32, 35, 43);
             pictureBox12.Image = Properties.Resources.Close;
             pictureBox12.Location = new Point(996, 0);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(40, 33);
             pictureBox12.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox12.TabIndex = 4;
+            pictureBox12.TabIndex = 7;
             pictureBox12.TabStop = false;
             pictureBox12.Click += exit_Click;
+            // 
+            // returns1
+            // 
+            returns1.BackColor = Color.FromArgb(32, 35, 43);
+            returns1.Dock = DockStyle.Fill;
+            returns1.Location = new Point(0, 0);
+            returns1.Name = "returns1";
+            returns1.Size = new Size(192, 42);
+            returns1.TabIndex = 5;
             // 
             // tabPage4
             // 
@@ -623,8 +634,6 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox3;
         private PictureBox pictureBox6;
-        private PictureBox pictureBox11;
-        private PictureBox pictureBox12;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
         private PictureBox minimize;
@@ -635,5 +644,8 @@
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private User_controls.Reservations reservations1;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox12;
+        private User_controls.Returns returns1;
     }
 }

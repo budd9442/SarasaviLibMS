@@ -43,7 +43,7 @@ namespace SarasaviLibMS.User_controls
                         int nextNumber = 0;
                         int copies = 0;
                         string? mainCopyid = "";
-                        string title =  Regex.Replace(addBookTItle.Text, @"\s+", " ");
+                        string title = Regex.Replace(addBookTItle.Text, @"\s+", " ");
                         string getNextNumber = string.Format("SELECT COUNT(*) FROM books WHERE classification='{0}'", addBookCategory.Text);
                         using (SqlCommand cmd = new SqlCommand(getNextNumber, connection))
                         {
@@ -166,9 +166,10 @@ namespace SarasaviLibMS.User_controls
 
         }
 
-        private void BookManager_Click(object sender, EventArgs e)
+
+        private void BookManager_Paint(object sender, PaintEventArgs e)
         {
-            
+            refreshResults();
         }
     }
 }

@@ -369,6 +369,7 @@
             Name = "Reservations";
             Size = new Size(1032, 685);
             Load += Reservations_Load;
+            Paint += Reservations_Paint;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);

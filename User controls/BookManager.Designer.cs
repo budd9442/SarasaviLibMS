@@ -239,6 +239,7 @@
             Controls.Add(panel2);
             Name = "BookManager";
             Size = new Size(1032, 685);
+            Paint += BookManager_Paint;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);

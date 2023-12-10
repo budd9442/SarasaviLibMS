@@ -474,6 +474,7 @@
             Name = "Loans";
             Size = new Size(1032, 685);
             Load += Borrowals_Load;
+            Paint += Loans_Paint;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);

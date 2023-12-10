@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SarasaviLibMS.User_controls
 {
@@ -20,8 +21,20 @@ namespace SarasaviLibMS.User_controls
             InitializeComponent();
             bookLabel.Text = book;
             userLabel.Text = user;
-            statLabel.Text = status == "loaned" ? "Pending" : "Available";
-            panel1.BackColor = status == "loaned" ? Color.FromArgb(151, 188, 255) : Color.FromArgb(80, 200, 120);
+
+            switch (status)
+            {
+                case "Reserved":
+                    panel1.BackColor =Color.FromArgb(2, 138, 15);
+                    statLabel.Text = "Available";
+                    return;
+                
+                //case "Available:
+                default:
+                    panel1.BackColor = Color.FromArgb(4, 146, 194);
+                    statLabel.Text = "Pending";
+                    return;
+            }
         }
 
         private void reservationItem_Load(object sender, EventArgs e)
@@ -38,17 +51,29 @@ namespace SarasaviLibMS.User_controls
                 {
                     try
                     {
+                        string nextStatus;
                         connection.Open();
-                        string checkIfReserved = string.Format("DELETE FROM reservations WHERE book = '{0}'", bookLabel.Text);
-                        using (SqlCommand cmd = new SqlCommand(checkIfReserved, connection))
-                        { 
+                        string delete = string.Format("DELETE FROM reservations WHERE book = '{0}'", bookLabel.Text);
+                        using (SqlCommand cmd = new SqlCommand(delete, connection))
+                        {
                             cmd.ExecuteNonQuery();
-                            connection.Close();
+                        }
+                        string checkIfLoaned = string.Format("SELECT COUNT(*) FROM loans WHERE book = '{0}'", bookLabel.Text);
+                        using (SqlCommand cmd = new SqlCommand(checkIfLoaned, connection))
+                        {
+                            nextStatus = (int)cmd.ExecuteScalar() > 0 ? "loaned" : "Available";
+                        }
+
+                        string updateBook = string.Format("UPDATE books SET status ='{0}' WHERE id = '{1}'", nextStatus, bookLabel.Text);
+                        using (SqlCommand cmd3 = new SqlCommand(updateBook, connection))
+                        {
+                            cmd3.ExecuteNonQuery();
+                            MessageBox.Show("upDateBook");
                         }
                     }
                     catch (Exception ex)
                     {
-
+                        MessageBox.Show(ex.Message);
                     }
                     finally
                     {
