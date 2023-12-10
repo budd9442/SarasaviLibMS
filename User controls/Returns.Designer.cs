@@ -42,12 +42,12 @@
             materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             panel3 = new Panel();
             button2 = new Button();
+            bookLabel = new Label();
+            nameLabel = new Label();
+            label4 = new Label();
+            label3 = new Label();
             confirmBtn = new Button();
             materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -122,9 +122,9 @@
             userTextbox.Location = new Point(78, 221);
             userTextbox.Multiline = true;
             userTextbox.Name = "userTextbox";
+            userTextbox.PlaceholderText = "0001";
             userTextbox.Size = new Size(153, 39);
             userTextbox.TabIndex = 0;
-            userTextbox.Text = "0001";
             userTextbox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel2
@@ -182,9 +182,9 @@
             bookTextBox.Location = new Point(62, 221);
             bookTextBox.Multiline = true;
             bookTextBox.Name = "bookTextBox";
+            bookTextBox.PlaceholderText = "A0001";
             bookTextBox.Size = new Size(153, 39);
             bookTextBox.TabIndex = 0;
-            bookTextBox.Text = "0001";
             bookTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // materialDivider2
@@ -203,16 +203,16 @@
             // 
             panel3.BackColor = Color.FromArgb(32, 35, 43);
             panel3.Controls.Add(button2);
-            panel3.Controls.Add(label6);
-            panel3.Controls.Add(label5);
+            panel3.Controls.Add(bookLabel);
+            panel3.Controls.Add(nameLabel);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(confirmBtn);
-            panel3.Dock = DockStyle.Left;
+            panel3.Dock = DockStyle.Bottom;
             panel3.ImeMode = ImeMode.NoControl;
-            panel3.Location = new Point(690, 0);
+            panel3.Location = new Point(690, 42);
             panel3.Name = "panel3";
-            panel3.Size = new Size(330, 685);
+            panel3.Size = new Size(342, 643);
             panel3.TabIndex = 6;
             // 
             // button2
@@ -224,13 +224,56 @@
             button2.ForeColor = SystemColors.ControlLightLight;
             button2.Image = Properties.Resources.Cancel;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(57, 577);
+            button2.Location = new Point(59, 537);
             button2.Name = "button2";
             button2.Size = new Size(214, 72);
             button2.TabIndex = 0;
             button2.Text = "           Cancel";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // bookLabel
+            // 
+            bookLabel.BackColor = Color.FromArgb(42, 45, 53);
+            bookLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bookLabel.ForeColor = SystemColors.ControlLight;
+            bookLabel.Location = new Point(33, 221);
+            bookLabel.Name = "bookLabel";
+            bookLabel.Size = new Size(273, 172);
+            bookLabel.TabIndex = 2;
+            // 
+            // nameLabel
+            // 
+            nameLabel.BackColor = Color.FromArgb(42, 45, 53);
+            nameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameLabel.ForeColor = SystemColors.ControlLight;
+            nameLabel.Location = new Point(33, 107);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(273, 61);
+            nameLabel.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlLight;
+            label4.Location = new Point(33, 69);
+            label4.Name = "label4";
+            label4.Size = new Size(101, 28);
+            label4.TabIndex = 2;
+            label4.Text = "Borrower :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ControlLight;
+            label3.Location = new Point(33, 180);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 28);
+            label3.TabIndex = 2;
+            label3.Text = "Book : ";
+            label3.Click += label3_Click;
             // 
             // confirmBtn
             // 
@@ -241,7 +284,7 @@
             confirmBtn.ForeColor = SystemColors.ControlLightLight;
             confirmBtn.Image = Properties.Resources.Ok;
             confirmBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            confirmBtn.Location = new Point(57, 499);
+            confirmBtn.Location = new Point(59, 459);
             confirmBtn.Name = "confirmBtn";
             confirmBtn.Size = new Size(214, 72);
             confirmBtn.TabIndex = 0;
@@ -261,49 +304,6 @@
             materialDivider3.Size = new Size(10, 685);
             materialDivider3.TabIndex = 5;
             materialDivider3.Text = "materialDivider3";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ControlLight;
-            label3.Location = new Point(33, 180);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 28);
-            label3.TabIndex = 2;
-            label3.Text = "Book : ";
-            label3.Click += label3_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLight;
-            label4.Location = new Point(33, 69);
-            label4.Name = "label4";
-            label4.Size = new Size(101, 28);
-            label4.TabIndex = 2;
-            label4.Text = "Borrower :";
-            // 
-            // label5
-            // 
-            label5.BackColor = Color.FromArgb(42, 45, 53);
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ControlLight;
-            label5.Location = new Point(33, 107);
-            label5.Name = "label5";
-            label5.Size = new Size(273, 61);
-            label5.TabIndex = 2;
-            // 
-            // label6
-            // 
-            label6.BackColor = Color.FromArgb(42, 45, 53);
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ControlLight;
-            label6.Location = new Point(33, 221);
-            label6.Name = "label6";
-            label6.Size = new Size(273, 128);
-            label6.TabIndex = 2;
             // 
             // Returns
             // 
@@ -350,7 +350,7 @@
         private Button confirmBtn;
         private Label label4;
         private Label label3;
-        private Label label6;
-        private Label label5;
+        private Label bookLabel;
+        private Label nameLabel;
     }
 }

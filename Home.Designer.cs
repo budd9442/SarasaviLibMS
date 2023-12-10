@@ -389,6 +389,9 @@
             returns1.Name = "returns1";
             returns1.Size = new Size(192, 42);
             returns1.TabIndex = 5;
+            returns1.MouseDown += panelMouseDown;
+            returns1.MouseMove += panelMouseMove;
+            returns1.MouseUp += panelMouseUp;
             // 
             // tabPage4
             // 
@@ -469,7 +472,7 @@
             reservations1.Name = "reservations1";
             reservations1.Size = new Size(1032, 685);
             reservations1.TabIndex = 3;
-            reservations1.MouseDown += panelMouseMove;
+            reservations1.MouseDown += panelMouseDown;
             reservations1.MouseMove += panelMouseMove;
             reservations1.MouseUp += panelMouseUp;
             // 

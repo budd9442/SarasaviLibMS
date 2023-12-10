@@ -16,9 +16,9 @@ namespace SarasaviLibMS.User_controls
 {
     public partial class BookManager : UserControl
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(Program.connectionString);
         private int results;
-
+       
         public BookManager()
         {
             InitializeComponent();

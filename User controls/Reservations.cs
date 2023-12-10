@@ -15,7 +15,7 @@ namespace SarasaviLibMS.User_controls
 {
     public partial class Reservations : UserControl
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(Program.connectionString);
 
         public Reservations()
         {
@@ -146,7 +146,7 @@ namespace SarasaviLibMS.User_controls
                     using (SqlCommand command = new SqlCommand(insertData, connection))
                     {
                         command.ExecuteNonQuery();
-                        MessageBox.Show("success");
+                        MessageBox.Show("Reservation added","Confirmation",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
 
 

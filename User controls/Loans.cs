@@ -15,7 +15,7 @@ namespace SarasaviLibMS.User_controls
 {
     public partial class Loans : UserControl
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(Program.connectionString);
 
         public Loans()
         {
@@ -78,10 +78,10 @@ namespace SarasaviLibMS.User_controls
                             string checkReservedUser = string.Format("SELECT member FROM reservations WHERE book='{0}'",borrowBookNum.Text.ToUpper().Trim());
                             using (SqlCommand cmd = new SqlCommand(checkReservedUser, connection))
                             {
-                                string? output = cmd.ExecuteScalar().ToString();
+                                object? output = cmd.ExecuteScalar();
                                 if(output != null)
                                 {
-                                    if( output == borrowUserNum.Text )
+                                    if( output.ToString() == borrowUserNum.Text )
                                     {
                                         available = true;
                                     }
@@ -195,7 +195,7 @@ namespace SarasaviLibMS.User_controls
                             {
                                 if (command.ExecuteNonQuery() > 0)
                                 {
-                                    MessageBox.Show("Reservation for book " + borrowBookNum.Text + " has been deleted");
+                                    MessageBox.Show("Reservation for book " + borrowBookNum.Text + " has been deleted","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
 
                             }
@@ -203,7 +203,7 @@ namespace SarasaviLibMS.User_controls
                             using (SqlCommand command = new SqlCommand(updadeBook, connection))
                             {
                                 command.ExecuteNonQuery();
-                                MessageBox.Show("success");
+                                MessageBox.Show("Book succesfully loaned", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 connection.Close();
                                 refreshResults();
                             }

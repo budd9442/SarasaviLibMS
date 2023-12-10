@@ -15,7 +15,7 @@ namespace SarasaviLibMS.User_controls
 {
     public partial class Returns : UserControl
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(Program.connectionString);
 
         public Returns()
         {
@@ -25,6 +25,7 @@ namespace SarasaviLibMS.User_controls
 
         void emptyBookList()
         {
+            flowLayoutPanel1.Controls.Clear();
             for (int i = 0; i < 5; i++)
             {
                 flowLayoutPanel1.Controls.Add(new returnItem("", ""));
@@ -66,13 +67,15 @@ namespace SarasaviLibMS.User_controls
                         }
                         else
                         {
+                            
+
                             string getLoans = string.Format("SELECT book,returnDate FROM loans WHERE borrower = {0}", int.Parse(userTextbox.Text));
                             using (SqlCommand comm = new SqlCommand(getLoans, connection))
                             {
                                 SqlDataAdapter adapter = new SqlDataAdapter(comm);
                                 DataTable table = new DataTable();
                                 adapter.Fill(table);
-                                MessageBox.Show(table.Rows.Count.ToString());
+                                //MessageBox.Show(table.Rows.Count.ToString());
                                 if (table.Rows.Count > 0)
                                 {
                                     flowLayoutPanel1.Controls.Clear();
@@ -97,6 +100,11 @@ namespace SarasaviLibMS.User_controls
 
                                 }
                             }
+                            string getUserName = string.Format("SELECT name FROM members WHERE number = {0}", userTextbox.Text);
+                            using(SqlCommand comm = new SqlCommand(getUserName, connection))
+                            {
+                                nameLabel.Text = comm.ExecuteScalar().ToString();
+                            }
                         }
 
                     }
@@ -120,14 +128,69 @@ namespace SarasaviLibMS.User_controls
             if (bookTextBox.Text.Length == 0 || bookTextBox.Text.Length < 4 || bookTextBox.Text.Length > 5)
             {
                 MessageBox.Show("Invalid book number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                connection.Close();
                 return;
             }
             if (connection.State != ConnectionState.Open)
             {
                 try
                 {
+                    connection.Open();
+                    string getUserName = string.Format("SELECT title FROM books WHERE id = '{0}'", bookTextBox.Text.ToUpper().Trim());
+                    using (SqlCommand comm = new SqlCommand(getUserName, connection))
+                    {
+                        Object? title = comm.ExecuteScalar();
+                        if (title != null)
+                        {
+                            bookLabel.Text = title.ToString();
+                            pictureBox2.Enabled = false;
+                            bookTextBox.Enabled = false;
+                            confirmBtn.Visible = true; 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid book number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                     
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bookTextBox.Text = "";
+            userTextbox.Text = "";
+            nameLabel.Text = "";
+            bookLabel.Text = "";
+            bookTextBox.Enabled = false;
+            userTextbox.Enabled = true;
+            pictureBox2.Enabled = false;
+            pictureBox1.Enabled = true;
+            confirmBtn.Visible = false;
+            emptyBookList();
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (connection.State != ConnectionState.Open)
+            {
+                try
+                {
+
                     connection.Open();
                     //MessageBox.Show(connection.State.ToString());
                     string checkBookNumber = string.Format("SELECT COUNT(*) FROM loans WHERE book= '{0}' AND borrower = {1} ", bookTextBox.Text.Trim(), userTextbox.Text);
@@ -146,24 +209,42 @@ namespace SarasaviLibMS.User_controls
                             using (SqlCommand cmd1 = new SqlCommand(deleteLoanRecord, connection))
                             {
                                 cmd1.ExecuteNonQuery();
-                                MessageBox.Show("deleteLoanRecord");
+                                //MessageBox.Show("deleteLoanRecord");
                             }
                             string checkReservations = string.Format("SELECT COUNT(*) FROM reservations WHERE book='{0}' AND member={1}", bookTextBox.Text.Trim(), userTextbox.Text);
                             using (SqlCommand cmd2 = new SqlCommand(checkReservations, connection))
                             {
                                 string status = (int)cmd2.ExecuteScalar() == 0 ? "Available" : "Reserved";
-                                MessageBox.Show("checkReservations");
+                                //MessageBox.Show("checkReservations");
                                 string updateBook = string.Format("UPDATE books SET status ='{0}' WHERE id = '{1}'", status, bookTextBox.Text.ToUpper().Trim());
                                 using (SqlCommand cmd3 = new SqlCommand(updateBook, connection))
                                 {
                                     cmd3.ExecuteNonQuery();
-                                    MessageBox.Show("upDateBook");
+                                    //MessageBox.Show("upDateBook");
                                 }
 
-                                MessageBox.Show("Book " + status);
+                                MessageBox.Show(
+                                "Book : " + bookLabel.Text + "\n\n" +
+                                "Borrower : " + nameLabel.Text + "\n\n" +
+                                "Return : Success " + DateTime.Now.ToShortDateString() + "\n\n" +
+                                "Status : " + status,
+                                "Confirmation",
+                                MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                                bookTextBox.Text = "";
+                                userTextbox.Text = "";
+                                nameLabel.Text = "";
+                                bookLabel.Text = "";
+                                bookTextBox.Enabled = false;
+                                userTextbox.Enabled = true;
+                                pictureBox2.Enabled = false;
+                                pictureBox1.Enabled = true;
+                                confirmBtn.Visible = false;
+                                emptyBookList();
+
+
+
                             }
-
-
 
                         }
                     }
@@ -178,24 +259,6 @@ namespace SarasaviLibMS.User_controls
                     connection.Close();
                 }
             }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            bookTextBox.Text = "";
-            userTextbox.Text = "";
-            bookTextBox.Enabled = false;
-            userTextbox.Enabled = true;
-            pictureBox2.Enabled = false;
-            emptyBookList();
-
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         public void setBookText(string text)

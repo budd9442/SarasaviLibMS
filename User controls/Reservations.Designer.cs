@@ -87,7 +87,7 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label5);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(520, 45);
+            panel2.Location = new Point(520, 59);
             panel2.Name = "panel2";
             panel2.Size = new Size(512, 44);
             panel2.TabIndex = 15;
@@ -118,9 +118,9 @@
             // 
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(520, 89);
+            flowLayoutPanel1.Location = new Point(520, 103);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(512, 596);
+            flowLayoutPanel1.Size = new Size(512, 582);
             flowLayoutPanel1.TabIndex = 14;
             flowLayoutPanel1.WrapContents = false;
             // 
