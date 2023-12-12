@@ -48,6 +48,7 @@
             bookTitle.Size = new Size(580, 25);
             bookTitle.TabIndex = 0;
             bookTitle.Text = "Book Title";
+            bookTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // bookNumber
             // 

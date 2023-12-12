@@ -49,6 +49,7 @@
             pictureBox12 = new PictureBox();
             returns1 = new User_controls.Returns();
             tabPage4 = new TabPage();
+            inquiries1 = new User_controls.Inquiries();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             tabPage5 = new TabPage();
@@ -396,13 +397,23 @@
             // tabPage4
             // 
             tabPage4.BackColor = Color.FromArgb(61, 61, 61);
+            tabPage4.Controls.Add(inquiries1);
             tabPage4.Controls.Add(pictureBox9);
             tabPage4.Controls.Add(pictureBox10);
-            tabPage4.Location = new Point(4, 54);
+            tabPage4.Location = new Point(4, 29);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(192, 42);
+            tabPage4.Size = new Size(1032, 685);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "tabPage4";
+            // 
+            // inquiries1
+            // 
+            inquiries1.BackColor = Color.FromArgb(32, 35, 43);
+            inquiries1.Dock = DockStyle.Fill;
+            inquiries1.Location = new Point(0, 0);
+            inquiries1.Name = "inquiries1";
+            inquiries1.Size = new Size(1032, 685);
+            inquiries1.TabIndex = 5;
             // 
             // pictureBox9
             // 
@@ -434,9 +445,9 @@
             tabPage5.Controls.Add(pictureBox7);
             tabPage5.Controls.Add(pictureBox8);
             tabPage5.Controls.Add(reservations1);
-            tabPage5.Location = new Point(4, 29);
+            tabPage5.Location = new Point(4, 79);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1032, 685);
+            tabPage5.Size = new Size(192, 17);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "tabPage5";
             // 
@@ -470,7 +481,7 @@
             reservations1.Dock = DockStyle.Fill;
             reservations1.Location = new Point(0, 0);
             reservations1.Name = "reservations1";
-            reservations1.Size = new Size(1032, 685);
+            reservations1.Size = new Size(192, 17);
             reservations1.TabIndex = 3;
             reservations1.MouseDown += panelMouseDown;
             reservations1.MouseMove += panelMouseMove;
@@ -650,5 +661,6 @@
         private PictureBox pictureBox11;
         private PictureBox pictureBox12;
         private User_controls.Returns returns1;
+        private User_controls.Inquiries inquiries1;
     }
 }
