@@ -31,10 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             label2 = new Label();
-            label5 = new Label();
+            bookLabel = new Label();
             timeLabel = new Label();
             welcomeLabel = new Label();
-            label4 = new Label();
+            userLabel = new Label();
             label6 = new Label();
             label7 = new Label();
             pictureBox1 = new PictureBox();
@@ -54,18 +54,18 @@
             label2.TabIndex = 1;
             label2.Text = "Books";
             // 
-            // label5
+            // bookLabel
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ControlLight;
-            label5.Location = new Point(33, 138);
-            label5.Name = "label5";
-            label5.Size = new Size(99, 81);
-            label5.TabIndex = 2;
-            label5.Text = "69";
-            label5.Click += label5_Click;
+            bookLabel.AutoSize = true;
+            bookLabel.BackColor = Color.Transparent;
+            bookLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bookLabel.ForeColor = SystemColors.ControlLight;
+            bookLabel.Location = new Point(33, 138);
+            bookLabel.Name = "bookLabel";
+            bookLabel.Size = new Size(99, 81);
+            bookLabel.TabIndex = 2;
+            bookLabel.Text = "69";
+            bookLabel.Click += label5_Click;
             // 
             // timeLabel
             // 
@@ -96,18 +96,18 @@
             welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
             welcomeLabel.Click += label9_Click;
             // 
-            // label4
+            // userLabel
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLight;
-            label4.Location = new Point(202, 138);
-            label4.Name = "label4";
-            label4.Size = new Size(99, 81);
-            label4.TabIndex = 2;
-            label4.Text = "69";
-            label4.Click += label5_Click;
+            userLabel.AutoSize = true;
+            userLabel.BackColor = Color.Transparent;
+            userLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userLabel.ForeColor = SystemColors.ControlLight;
+            userLabel.Location = new Point(202, 138);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(99, 81);
+            userLabel.TabIndex = 2;
+            userLabel.Text = "69";
+            userLabel.Click += label5_Click;
             // 
             // label6
             // 
@@ -147,6 +147,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            pictureBox1.Paint += pictureBox1_Paint;
             // 
             // timer1
             // 
@@ -165,8 +166,8 @@
             Controls.Add(timeLabel);
             Controls.Add(label6);
             Controls.Add(label2);
-            Controls.Add(label4);
-            Controls.Add(label5);
+            Controls.Add(userLabel);
+            Controls.Add(bookLabel);
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
             Name = "Dashboard";
@@ -179,10 +180,10 @@
 
         #endregion
         private Label label2;
-        private Label label5;
+        private Label bookLabel;
         private Label timeLabel;
         private Label welcomeLabel;
-        private Label label4;
+        private Label userLabel;
         private Label label6;
         private Label label7;
         private PictureBox pictureBox1;
