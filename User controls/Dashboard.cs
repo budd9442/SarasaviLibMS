@@ -15,6 +15,34 @@ namespace SarasaviLibMS.User_controls
         public Dashboard()
         {
             InitializeComponent();
+            timer1.Start();
+            
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            //timeLabel.Text = DateTime.Now.ToString("t");
+            Home home = this.ParentForm as Home;
+            if (home != null)
+            {
+                welcomeLabel.Text = string.Format("Welcome {0}!", home.user);
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timeLabel.Text = DateTime.Now.ToString("t");
         }
     }
 }

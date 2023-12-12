@@ -9,7 +9,7 @@ namespace SarasaviLibMS
 {
     public partial class Home : Form
     {
-        string user = "";
+        public string user = "";
         private bool mouseDown;
         private Point lastLocation;
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\budd\source\repos\SarasaviLibMS\bin\Debug\library.mdf;Integrated Security=True;Connect Timeout=30");
