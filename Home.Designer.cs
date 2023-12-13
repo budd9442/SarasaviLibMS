@@ -64,9 +64,9 @@
             borrowals1 = new User_controls.Loans();
             materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
-            dashboard1 = new User_controls.Dashboard();
             pictureBox15 = new PictureBox();
             pictureBox16 = new PictureBox();
+            dashboard1 = new User_controls.Dashboard();
             panel1.SuspendLayout();
             tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -523,7 +523,7 @@
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1032, 685);
+            tabPage2.Size = new Size(192, 67);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             // 
@@ -558,7 +558,7 @@
             borrowals1.ForeColor = Color.LightGray;
             borrowals1.Location = new Point(3, 3);
             borrowals1.Name = "borrowals1";
-            borrowals1.Size = new Size(1026, 679);
+            borrowals1.Size = new Size(186, 61);
             borrowals1.TabIndex = 5;
             borrowals1.MouseDown += panelMouseDown;
             borrowals1.MouseMove += panelMouseMove;
@@ -596,19 +596,6 @@
             tabPage1.TabIndex = 7;
             tabPage1.Text = "tabPage1";
             // 
-            // dashboard1
-            // 
-            dashboard1.BackColor = Color.FromArgb(32, 35, 43);
-            dashboard1.BackgroundImageLayout = ImageLayout.Stretch;
-            dashboard1.Dock = DockStyle.Fill;
-            dashboard1.Location = new Point(0, 0);
-            dashboard1.Name = "dashboard1";
-            dashboard1.Size = new Size(1032, 685);
-            dashboard1.TabIndex = 0;
-            dashboard1.MouseDown += panelMouseDown;
-            dashboard1.MouseMove += panelMouseMove;
-            dashboard1.MouseUp += panelMouseUp;
-            // 
             // pictureBox15
             // 
             pictureBox15.BackColor = Color.FromArgb(32, 35, 43);
@@ -633,6 +620,19 @@
             pictureBox16.TabStop = false;
             pictureBox16.Click += exit_Click;
             // 
+            // dashboard1
+            // 
+            dashboard1.BackColor = Color.FromArgb(32, 35, 43);
+            dashboard1.BackgroundImageLayout = ImageLayout.Stretch;
+            dashboard1.Dock = DockStyle.Fill;
+            dashboard1.Location = new Point(0, 0);
+            dashboard1.Name = "dashboard1";
+            dashboard1.Size = new Size(1032, 685);
+            dashboard1.TabIndex = 0;
+            dashboard1.MouseDown += panelMouseDown;
+            dashboard1.MouseMove += panelMouseMove;
+            dashboard1.MouseUp += panelMouseUp;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -644,6 +644,7 @@
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SarasaviLibMS";
             FormClosed += Home_FormClosed;
             Load += Form1_Load;

@@ -33,7 +33,6 @@
             label2 = new Label();
             bookLabel = new Label();
             timeLabel = new Label();
-            welcomeLabel = new Label();
             userLabel = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -79,22 +78,6 @@
             timeLabel.Size = new Size(83, 41);
             timeLabel.TabIndex = 3;
             timeLabel.Text = "Time";
-            // 
-            // welcomeLabel
-            // 
-            welcomeLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            welcomeLabel.AutoSize = true;
-            welcomeLabel.BackColor = Color.Transparent;
-            welcomeLabel.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            welcomeLabel.ForeColor = SystemColors.AppWorkspace;
-            welcomeLabel.Location = new Point(708, 118);
-            welcomeLabel.Margin = new Padding(0);
-            welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(219, 41);
-            welcomeLabel.TabIndex = 3;
-            welcomeLabel.Text = "Welcome User!";
-            welcomeLabel.TextAlign = ContentAlignment.MiddleCenter;
-            welcomeLabel.Click += label9_Click;
             // 
             // userLabel
             // 
@@ -162,7 +145,6 @@
             BackColor = Color.FromArgb(32, 35, 43);
             BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(label7);
-            Controls.Add(welcomeLabel);
             Controls.Add(timeLabel);
             Controls.Add(label6);
             Controls.Add(label2);
@@ -182,7 +164,6 @@
         private Label label2;
         private Label bookLabel;
         private Label timeLabel;
-        private Label welcomeLabel;
         private Label userLabel;
         private Label label6;
         private Label label7;

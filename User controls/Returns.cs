@@ -124,9 +124,9 @@ namespace SarasaviLibMS.User_controls
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (bookTextBox.Text.Length == 0 || bookTextBox.Text.Length < 4 || bookTextBox.Text.Length > 5)
+            if (string.IsNullOrWhiteSpace(bookTextBox.Text)) 
             {
-                MessageBox.Show("Invalid book number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              
                 return;
             }
             if (connection.State != ConnectionState.Open)

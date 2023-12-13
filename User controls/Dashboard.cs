@@ -37,7 +37,7 @@ namespace SarasaviLibMS.User_controls
             Home home = this.ParentForm as Home;
             if (home != null)
             {
-                welcomeLabel.Text = string.Format("Welcome {0}!", home.user);
+                //welcomeLabel.Text = string.Format("Welcome {0}!", home.user);
             }
         }
 

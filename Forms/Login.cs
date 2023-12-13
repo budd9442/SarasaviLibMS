@@ -38,18 +38,19 @@ namespace SarasaviLibMS.Forms
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(loginUsername.Text) ||
-                string.IsNullOrWhiteSpace(loginPasswd.Text) )
+                string.IsNullOrWhiteSpace(loginPasswd.Text))
             {
                 MessageBox.Show("Please fill in all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if(connection.State != ConnectionState.Open)
+                if (connection.State != ConnectionState.Open)
                 {
-                    try { 
+                    try
+                    {
                         connection.Open();
                         string getData = string.Format
-                            ("SELECT * FROM users WHERE userName = '{0}' AND password='{1}'",loginUsername.Text,loginPasswd.Text);
+                            ("SELECT * FROM users WHERE userName = '{0}' AND password='{1}'", loginUsername.Text, loginPasswd.Text);
                         using (SqlCommand comm = new SqlCommand(getData, connection))
                         {
                             SqlDataAdapter adapter = new SqlDataAdapter(comm);
@@ -68,11 +69,12 @@ namespace SarasaviLibMS.Forms
 
                             }
                         }
-                            
-                        
 
 
-                    } catch (Exception ex) 
+
+
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -80,6 +82,16 @@ namespace SarasaviLibMS.Forms
                     finally { connection.Close(); }
                 }
             }
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

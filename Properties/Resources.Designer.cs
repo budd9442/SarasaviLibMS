@@ -113,6 +113,26 @@ namespace SarasaviLibMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _79a44dc5494d1664aef2ec4883c59c33 {
+            get {
+                object obj = ResourceManager.GetObject("79a44dc5494d1664aef2ec4883c59c33", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7ae008a982eaeab80539d029c1c899bf {
+            get {
+                object obj = ResourceManager.GetObject("7ae008a982eaeab80539d029c1c899bf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_Book {
             get {
                 object obj = ResourceManager.GetObject("Add Book", resourceCulture);
@@ -286,6 +306,16 @@ namespace SarasaviLibMS.Properties {
         internal static System.Drawing.Bitmap Search {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w {
+            get {
+                object obj = ResourceManager.GetObject("w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
